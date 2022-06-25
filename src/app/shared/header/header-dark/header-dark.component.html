@@ -1,0 +1,54 @@
+<nav class="limiter-menu-desktop p-l-45">
+    <div class="menu-desktop">
+        <ul class="main-menu">
+            <li [routerLink]="['/']" [routerLinkActive]="['active-menu']" [routerLinkActiveOptions]="{exact: true}">
+                <a>Inicio</a>
+                <ul class="sub-menu">
+                    <li>
+                        <a to="/">Q&A</a>
+                    </li>
+                    <li>
+                        <a to="/">Devoluciones</a>
+                    </li>
+                    <li>
+                        <a href="">Ofertas</a>
+                    </li>
+                </ul>
+            </li>
+            <li [routerLink]="['/shop']" [routerLinkActiveOptions]="{exact: true}" [routerLinkActive]="['active-menu']">
+                <a>Comprar</a>
+            </li>
+
+            <li [routerLink]="['/shopping-cart']" [routerLinkActiveOptions]="{exact: true}"
+                [routerLinkActive]="['active-menu']" class="label1" data-label1="Revisar">
+                <a>Carrito</a>
+            </li>
+
+            <li [routerLink]="['/blog']" [routerLinkActiveOptions]="{exact: true}" [routerLinkActive]="['active-menu']">
+                <a>Blog</a>
+            </li>
+
+            <li [routerLink]="['/about']" [routerLinkActive]="['active-menu']"
+                [routerLinkActiveOptions]="{exact: true}">
+                <a>Sobre nosotros</a>
+            </li>
+
+            <li [routerLink]="['/contact']" [routerLinkActive]="['active-menu']"
+                [routerLinkActiveOptions]="{exact: true}">
+                <a>Contáctanos</a>
+            </li>
+        </ul>
+    </div>
+    <div class="wrap-icon-header flex-w flex-r-m h-full">
+        <div class="flex-c-m h-full p-r-25 bor6">
+            <div class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" data-notify="2">
+                <i class="zmdi zmdi-shopping-cart"></i>
+            </div>
+        </div>
+        <div class="flex-c-m h-full p-lr-19">
+            <div class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11 js-show-sidebar">
+                <i class="zmdi zmdi-menu"></i>
+            </div>
+        </div>
+    </div>
+</nav>

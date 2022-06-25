@@ -1,0 +1,55 @@
+<nav class="limiter-menu-desktop container">
+    <div class="menu-desktop">
+        <ul class="main-menu">
+            <li [routerLink]="['/']" [routerLinkActive]="['active-menu']" [routerLinkActiveOptions]="{exact: true}">
+                <a>Inicio</a>
+                <ul class="sub-menu">
+                    <li>
+                        <a to="/">Q&A</a>
+                    </li>
+                    <li>
+                        <a to="/">Devoluciones</a>
+                    </li>
+                    <li>
+                        <a href="">Ofertas</a>
+                    </li>
+                </ul>
+            </li>
+            <li [routerLink]="['/shop']" [routerLinkActiveOptions]="{exact: true}" [routerLinkActive]="['active-menu']">
+                <a>Comprar</a>
+            </li>
+
+            <li [routerLink]="['/shopping-cart']" [routerLinkActiveOptions]="{exact: true}"
+                [routerLinkActive]="['active-menu']" class="label1" data-label1="Revisar">
+                <a>Carrito</a>
+            </li>
+
+            <li [routerLink]="['/blog']" [routerLinkActiveOptions]="{exact: true}" [routerLinkActive]="['active-menu']">
+                <a>Blog</a>
+            </li>
+
+            <li [routerLink]="['/about']" [routerLinkActive]="['active-menu']"
+                [routerLinkActiveOptions]="{exact: true}">
+                <a>Sobre nosotros</a>
+            </li>
+
+            <li [routerLink]="['/contact']" [routerLinkActive]="['active-menu']"
+                [routerLinkActiveOptions]="{exact: true}">
+                <a>Contáctanos</a>
+            </li>
+        </ul>
+    </div>
+    <div class="wrap-icon-header flex-w flex-r-m">
+        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11" data-notify="5" (click)="searchPanel()">
+            <i class="zmdi zmdi-search"></i>
+        </div>
+        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" (click)="shoppingCartPanel()"
+            data-notify="1">
+            <i class="zmdi zmdi-shopping-cart"></i>
+        </div>
+        <div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" (click)="notificationPanel()"
+            data-notify="1">
+            <i class="zmdi zmdi-notifications icon-notification"></i>
+        </div>
+    </div>
+</nav>

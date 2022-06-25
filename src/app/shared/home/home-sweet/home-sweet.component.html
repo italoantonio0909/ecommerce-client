@@ -1,0 +1,25 @@
+<!-- EXPERIMENTAL SLIDER -->
+<section class="section-slide">
+    <div class="wrap-slick1">
+        <div class="slick1">
+            <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+                <div ngxSlickItem *ngFor="let slide of slides" class="slide">
+                    <app-slider-preview [slider]="slide"></app-slider-preview>
+                </div>
+            </ngx-slick-carousel>
+        </div>
+    </div>
+</section>
+
+<!-- Banner section -->
+<div class="sec-banner bg0 p-t-80 p-b-50">
+    <div class="container">
+        <div class="row">
+            <div *ngFor="let item of banners$ | async" class="col-md-6 col-xl-4 p-b-30 m-lr-auto">
+                <app-banner></app-banner>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-product-section></app-product-section>

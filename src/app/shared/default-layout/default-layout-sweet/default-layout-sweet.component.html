@@ -1,0 +1,23 @@
+<header class="header-v4">
+    <div class="container-menu-desktop">
+        <app-header-info></app-header-info>
+        <div class="wrap-menu-desktop">
+            <app-header-sweet></app-header-sweet>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+    <ng-template [ngIf]="notificationSetup$ | async">
+        <app-notification-panel></app-notification-panel>
+    </ng-template>
+    <ng-template [ngIf]="shoppingCartSetup$ | async">
+        <app-shopping-cart-panel></app-shopping-cart-panel>
+    </ng-template>
+    <ng-template [ngIf]="searchSetup$ | async">
+        <app-search-panel></app-search-panel>
+    </ng-template>
+    <ng-template [ngIf]="productDetail$ | async">
+        <app-product-detail></app-product-detail>
+    </ng-template>
+</header>
+<app-back-top></app-back-top>
+<app-footer></app-footer>
