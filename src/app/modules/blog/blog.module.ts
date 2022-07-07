@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { BlogRoutingModule } from './blog-routing.module';
-import { BlogComponent } from './blog/blog.component';
+import { BlogComponent } from './components/blog/blog.component';
 import { SharedModule } from '../shared/shared.module';
-import { PostPreviewComponent } from './post-preview/post-preview.component';
-import { PostComponent } from './post/post.component';
+import { PostComponent } from './components/post/post.component';
+import { PostPreviewComponent } from './components/post-preview/post-preview.component';
 
 const components = [BlogComponent, PostPreviewComponent, PostComponent];
 
@@ -14,4 +14,4 @@ const components = [BlogComponent, PostPreviewComponent, PostComponent];
   imports: [CommonModule, BlogRoutingModule, SharedModule],
   exports: [components],
 })
-export class BlogModule {}
+export class BlogModule { }

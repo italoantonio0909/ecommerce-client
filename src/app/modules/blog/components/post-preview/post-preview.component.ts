@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Post } from '../interfaces/post-interfaces';
+import { Post } from '../../interfaces/blog-interfaces';
 
 @Component({
   selector: 'app-post-preview',
@@ -9,7 +9,7 @@ import { Post } from '../interfaces/post-interfaces';
 export class PostPreviewComponent implements OnInit {
   @Input() data: Post = {} as Post;
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }
