@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { Select2OptionData } from 'ng-select2';
-import { ProductDetail } from '../../../store/products/actions';
+import { ProductDetail } from '../../store/actions';
 
 @Component({
   selector: 'app-product-detail',

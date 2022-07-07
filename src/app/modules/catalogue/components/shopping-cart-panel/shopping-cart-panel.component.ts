@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
-import { SharedState } from '../../../store/shared/shared.state';
-import { ShoppingCartSetup } from '../../../store/shared/shared.actions';
+import { SharedState } from '../../../../store/shared/shared.state';
+import { ShoppingCartSetup } from '../../../../store/shared/shared.actions';
 
 @Component({
   selector: 'app-shopping-cart-panel',

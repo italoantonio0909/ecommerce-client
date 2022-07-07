@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './modules/shared/shared.module';
 import { NgxsModule } from '@ngxs/store';
 import { BlogModule } from './modules/blog/blog.module';
-import { ProductsModule } from './modules/products/products.module';
 import { NotificationModule } from './modules/notification/notification.module';
 import { ShopModule } from './modules/shop/shop.module';
 import { SharedState } from './store/shared/shared.state';
@@ -17,10 +16,11 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { DefaultLayoutSweetComponent } from './modules/shared/default-layout/default-layout-sweet/default-layout-sweet.component';
 import { DefaultLayoutDarkComponent } from './modules/shared/default-layout/default-layout-dark/default-layout-dark.component';
 import { DefaultLayoutLigthComponent } from './modules/shared/default-layout/default-layout-ligth/default-layout-ligth.component';
-import { ProductState } from './store/products/state';
 import { HttpClientModule } from '@angular/common/http';
 import { SubscribersModule } from './modules/subscribers/subscribers.module';
 import { SubscriberState } from './modules/subscribers/store/state';
+import { CatalogueModule } from './modules/catalogue/catalogue.module';
+import { CatalogueState } from './modules/catalogue/store/state';
 
 const CONTAINERS = [
   DefaultLayoutSweetComponent,
@@ -30,7 +30,7 @@ const CONTAINERS = [
 
 const states = [
   SharedState,
-  ProductState,
+  CatalogueState,
   SubscriberState
 ]
 
@@ -40,11 +40,12 @@ const states = [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    CatalogueModule,
     SharedModule,
     BlogModule,
     ContactModule,
     AboutModule,
-    ProductsModule,
+    CatalogueModule,
     ShoppingCartModule,
     ShopModule,
     SubscribersModule,
