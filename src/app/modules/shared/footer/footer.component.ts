@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  SubscriberService,
-  Subscriber,
-} from '../../services/subscriber.service';
-import { ToastMessage } from '../../helpers/index';
 import { FormControl } from '@angular/forms';
+import { SubscriberService, Subscriber } from '../../../services/subscriber.service';
+import { ToastMessage } from '../../../helpers/index';
 
 @Component({
   selector: 'app-footer',
@@ -16,9 +13,9 @@ export class FooterComponent implements OnInit {
 
   email = new FormControl('');
 
-  constructor(private subscriberService: SubscriberService) {}
+  constructor(private subscriberService: SubscriberService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   async createSubscriber() {
     this.isLoading = true;

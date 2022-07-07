@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
-import { SearchSetup } from '../../store/shared/shared.actions';
 import { Observable } from 'rxjs';
-import { SharedState } from '../../store/shared/shared.state';
+import { SearchSetup } from '../../../store/shared/shared.actions';
+import { SharedState } from '../../../store/shared/shared.state';
 
 @Component({
   selector: 'app-search-panel',
@@ -13,11 +13,11 @@ export class SearchPanelComponent implements OnInit {
   @Select(SharedState.getSearchSetup)
   searchSetup$!: Observable<any>;
 
-  constructor(private store: Store) {}
+  constructor(private store: Store) { }
 
   searchPanelHide() {
     this.store.dispatch(new SearchSetup(false));
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

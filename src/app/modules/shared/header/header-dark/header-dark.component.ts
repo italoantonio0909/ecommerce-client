@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  NotificationSetup,
-  SearchSetup,
-} from '../../../store/shared/shared.actions';
+
 import { Store } from '@ngxs/store';
+import { NotificationSetup, SearchSetup } from '../../../../store/shared/shared.actions';
 
 @Component({
   selector: 'app-header-dark',
@@ -11,7 +9,7 @@ import { Store } from '@ngxs/store';
   styleUrls: ['./header-dark.component.css'],
 })
 export class HeaderDarkComponent implements OnInit {
-  constructor(public store: Store) {}
+  constructor(public store: Store) { }
 
   notificationPanel() {
     this.store.dispatch(new NotificationSetup(true));

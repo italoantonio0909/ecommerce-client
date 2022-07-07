@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Customer } from '../../entities/Customer';
-import { ToastMessage } from 'src/app/helpers';
-import { AlertMessage } from '../../../helpers/index';
+import { AlertMessage } from '../../../../helpers/index';
 
 @Component({
   selector: 'app-signUp',
@@ -13,7 +12,7 @@ export class SignUpComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private formBuilder: FormBuilder
-  ) {}
+  ) { }
 
   signUpForm = this.formBuilder.group({
     email: new FormControl('', Validators.required),

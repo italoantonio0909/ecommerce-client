@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  NotificationSetup,
-  SearchSetup,
-} from '../../../store/shared/shared.actions';
+
 import { Store } from '@ngxs/store';
-import { ShoppingCartSetup } from '../../../store/shared/shared.actions';
+import { NotificationSetup, SearchSetup, ShoppingCartSetup } from '../../../../store/shared/shared.actions';
 
 @Component({
   selector: 'app-header-sweet',
@@ -12,7 +9,7 @@ import { ShoppingCartSetup } from '../../../store/shared/shared.actions';
   styleUrls: ['./header-sweet.component.css'],
 })
 export class HeaderSweetComponent implements OnInit {
-  constructor(private store: Store) {}
+  constructor(private store: Store) { }
 
   notificationPanel() {
     this.store.dispatch(new NotificationSetup(true));

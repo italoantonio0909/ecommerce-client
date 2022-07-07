@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Select } from '@ngxs/store';
-import { SharedState } from '../../../store/shared/shared.state';
 import { Observable } from 'rxjs';
-import { ProductState } from '../../../store/products/state';
+import { SharedState } from '../../../../store/shared/shared.state';
+import { ProductState } from '../../../../store/products/state';
 
 @Component({
   selector: 'app-default-layout-sweet',
@@ -10,7 +10,7 @@ import { ProductState } from '../../../store/products/state';
   styleUrls: ['./default-layout-sweet.component.css'],
 })
 export class DefaultLayoutSweetComponent implements OnInit {
-  constructor() {}
+  constructor() { }
 
   @Select(SharedState.getNotificationSetup)
   notificationSetup$!: Observable<any>;
@@ -24,5 +24,5 @@ export class DefaultLayoutSweetComponent implements OnInit {
   @Select(ProductState.getProductDetail)
   productDetail$!: Observable<any>;
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

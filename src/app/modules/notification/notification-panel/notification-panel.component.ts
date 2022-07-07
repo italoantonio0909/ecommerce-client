@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
-import { NotificationSetup } from '../../store/shared/shared.actions';
 import { Observable } from 'rxjs';
-import { SharedState } from '../../store/shared/shared.state';
+import { NotificationSetup } from '../../../store/shared/shared.actions';
+import { SharedState } from '../../../store/shared/shared.state';
 
 @Component({
   selector: 'app-notification-panel',
@@ -10,7 +10,7 @@ import { SharedState } from '../../store/shared/shared.state';
   styleUrls: ['./notification-panel.component.css'],
 })
 export class NotificationPanelComponent implements OnInit {
-  constructor(private store: Store) {}
+  constructor(private store: Store) { }
 
   @Select(SharedState.getNotificationSetup)
   notificationSetup$!: Observable<any>;

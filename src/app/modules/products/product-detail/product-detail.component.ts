@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { Select2OptionData } from 'ng-select2';
-import { ProductDetail } from '../../store/products/actions';
+import { ProductDetail } from '../../../store/products/actions';
 
 @Component({
   selector: 'app-product-detail',
@@ -13,9 +13,9 @@ export class ProductDetailComponent implements OnInit {
 
   sizeSelected: Select2OptionData = {} as Select2OptionData;
 
-  constructor(private store: Store) {}
+  constructor(private store: Store) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   closeModal() {
     this.store.dispatch(new ProductDetail(false));

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastMessage } from '../../helpers';
 import { Store, Select } from '@ngxs/store';
-import { ProductDetail } from '../../store/products/actions';
-import { ProductStateModel, ProductState } from '../../store/products/state';
 import { Observable } from 'rxjs';
+import { ProductDetail } from '../../../store/products/actions';
+import { ToastMessage } from '../../../helpers/index';
+import { ProductState } from '../../../store/products/state';
 
 @Component({
   selector: 'app-product',
@@ -11,9 +11,9 @@ import { Observable } from 'rxjs';
   styleUrls: ['./product.component.css'],
 })
 export class ProductComponent implements OnInit {
-  constructor(private store: Store) {}
+  constructor(private store: Store) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   @Select(ProductState.getProductDetail) productDetail!: Observable<any>;
 
