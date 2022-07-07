@@ -21,6 +21,7 @@ import { SubscribersModule } from './modules/subscribers/subscribers.module';
 import { SubscriberState } from './modules/subscribers/store/state';
 import { CatalogueModule } from './modules/catalogue/catalogue.module';
 import { CatalogueState } from './modules/catalogue/store/state';
+import { BlogState } from './modules/blog/store/state';
 
 const CONTAINERS = [
   DefaultLayoutSweetComponent,
@@ -31,7 +32,8 @@ const CONTAINERS = [
 const states = [
   SharedState,
   CatalogueState,
-  SubscriberState
+  SubscriberState,
+  BlogState
 ]
 
 @NgModule({
