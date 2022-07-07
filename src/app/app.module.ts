@@ -19,12 +19,20 @@ import { DefaultLayoutDarkComponent } from './modules/shared/default-layout/defa
 import { DefaultLayoutLigthComponent } from './modules/shared/default-layout/default-layout-ligth/default-layout-ligth.component';
 import { ProductState } from './store/products/state';
 import { HttpClientModule } from '@angular/common/http';
+import { SubscribersModule } from './modules/subscribers/subscribers.module';
+import { SubscriberState } from './modules/subscribers/store/state';
 
 const CONTAINERS = [
   DefaultLayoutSweetComponent,
   DefaultLayoutDarkComponent,
   DefaultLayoutLigthComponent,
 ];
+
+const states = [
+  SharedState,
+  ProductState,
+  SubscriberState
+]
 
 @NgModule({
   declarations: [AppComponent, ...CONTAINERS],
@@ -39,9 +47,10 @@ const CONTAINERS = [
     ProductsModule,
     ShoppingCartModule,
     ShopModule,
+    SubscribersModule,
     NotificationModule,
     SlickCarouselModule,
-    NgxsModule.forRoot([SharedState, ProductState], {
+    NgxsModule.forRoot([...states], {
       developmentMode: true,
     }),
   ],

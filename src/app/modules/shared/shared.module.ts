@@ -21,6 +21,7 @@ import { HeaderDarkComponent } from './header/header-dark/header-dark.component'
 import { HeaderLigthComponent } from './header/header-ligth/header-ligth.component';
 import { LoaderElipsisComponent } from './loader-elipsis/loader-elipsis.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SubscribersModule } from '../subscribers/subscribers.module';
 
 const components = [
   HeaderInfoComponent,
@@ -46,10 +47,11 @@ const components = [
     ReactiveFormsModule,
     SharedRoutingModule,
     ProductsModule,
+    SubscribersModule,
     ShopModule,
     NotificationModule,
     SlickCarouselModule,
   ],
   exports: [components],
 })
-export class SharedModule {}
+export class SharedModule { }
