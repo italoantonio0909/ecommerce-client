@@ -2,7 +2,7 @@
     <div class="container">
         <div class="flex-c">
             <div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
-                <form [formGroup]="signUpForm">
+                <form [formGroup]="customerCreateForm">
                     <h4 class="mtext-105 cl2 txt-center p-b-30">
                         Crear una cuenta
                     </h4>
@@ -31,18 +31,30 @@
                             class="stext-111 cl2 plh3 size-116 p-l-25 p-r-30" type="text" name="email"
                             placeholder="Correo electrónico">
                     </div>
-                    <div class="bor8 m-b-20">
-                        <input formControlName="password" class="stext-111 cl2 plh3 size-116 p-l-25 p-r-30" type="text"
-                            name="email" autocomplete="off" placeholder="Contraseña">
+                    <div class="bor8 m-b-20 how-pos6-parent">
+                        <input formControlName="password" class="stext-111 cl2 plh3 size-116 p-l-25 p-r-30"
+                            [type]="hiddenPassword ? 'password' : 'text'" autocomplete="off" placeholder="Contraseña">
+                        <a class="how-pos6 fs-18 cl8 trans-04 cursor-pointer"
+                            (click)="hiddenPassword = !hiddenPassword">
+                            <i [ngClass]="[hiddenPassword ? 'fa fa-eye-slash m-l-9' : 'fa fa-eye m-l-9']"
+                                aria-hidden="true"></i>
+                        </a>
                     </div>
                     <div class="bor8 m-b-30">
                         <input formControlName="passwordConfirm" autocomplete="off"
-                            class="stext-111 cl2 plh3 size-116 p-l-25 p-r-30" type="text" name="email"
+                            class="stext-111 cl2 plh3 size-116 p-l-25 p-r-30" type="text" name="passwordConfirm"
                             placeholder="Confirmar contraseña">
                     </div>
-                    <button type="button" (click)="signUp()"
-                        class="flex-c-m stext-101 cl0 size-121 bg1 bor1 hov-btn3 p-lr-15 trans-04 pointer">
-                        Registrarme
+                    <button type="button" (click)="customerCreate()" [ngClass]="{'hov-btn3' : !isLoading}"
+                        class="flex-c-m stext-101 cl0 size-121 bg1 bor1 p-lr-15 trans-04 pointer">
+                        <div *ngIf="!isLoading; else loading">Registrarme</div>
+                        <ng-template #loading>
+                            <div class="lds-ellipsis">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </ng-template>
                     </button>
                 </form>
             </div>
@@ -53,7 +65,7 @@
                     <div class="flex-row align-self-stretch">
                         <div class="col-sm">
                             <h4 class="stext-111 txt-center cl2">
-                                Ya tiene tienes una cuenta?
+                                Ya tienes una cuenta?
                                 <span [routerLink]="['/authentication/signIn']"
                                     class="cursor-pointer stext-111 cl1 m-l-5">Login</span>
                             </h4>

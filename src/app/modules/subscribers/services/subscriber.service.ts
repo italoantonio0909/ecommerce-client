@@ -2,14 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { getUrl } from 'src/app/helpers';
-
-export interface Subscriber {
-  id?: string;
-  email: string;
-  created_at?: number;
-  modified_at?: number;
-  status?: "active" | "inactive";
-}
+import { Subscriber } from '../entities/Subscriber';
 
 @Injectable({
   providedIn: 'root',

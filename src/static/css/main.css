@@ -3055,6 +3055,17 @@ input.num-product::-webkit-inner-spin-button {
 }
 
 /*---------------------------------------------*/
+.how-pos6-parent {
+  position: relative;
+}
+
+.how-pos6 {
+  position: absolute;
+  top: calc(50% - 9px);
+  right: 28px;
+}
+
+/*---------------------------------------------*/
 .how-itemcart1 {
   width: 60px;
   position: relative;
