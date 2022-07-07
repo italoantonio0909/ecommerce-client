@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { SharedState } from '../../../../store/shared/shared.state';
-import { ProductState } from '../../../../store/products/state';
+import { CatalogueState } from '../../../catalogue/store/state';
 
 @Component({
   selector: 'app-default-layout-sweet',
@@ -21,7 +21,7 @@ export class DefaultLayoutSweetComponent implements OnInit {
   @Select(SharedState.getSearchSetup)
   searchSetup$!: Observable<any>;
 
-  @Select(ProductState.getProductDetail)
+  @Select(CatalogueState.getProductDetail)
   productDetail$!: Observable<any>;
 
   ngOnInit(): void { }

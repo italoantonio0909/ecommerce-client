@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
-import { ProductDetail } from '../../../store/products/actions';
-import { ToastMessage } from '../../../helpers/index';
-import { ProductState } from '../../../store/products/state';
+import { ToastMessage } from '../../../../helpers/index';
+import { ProductDetail } from '../../store/actions';
+import { CatalogueState } from '../../store/state';
 
 @Component({
   selector: 'app-product',
@@ -15,7 +15,7 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  @Select(ProductState.getProductDetail) productDetail!: Observable<any>;
+  @Select(CatalogueState.getProductDetail) productDetail!: Observable<any>;
 
   showAlert() {
     ToastMessage('Producto agregado a favoritos', 'success');

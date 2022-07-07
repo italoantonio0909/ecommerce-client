@@ -6,7 +6,6 @@ import { HeaderInfoComponent } from './header-info/header-info.component';
 import { FooterComponent } from './footer/footer.component';
 import { BackTopComponent } from './back-top/back-top.component';
 import { HeaderImageComponent } from './header-image/header-image.component';
-import { ProductsModule } from '../products/products.module';
 import { NotificationModule } from '../notification/notification.module';
 import { ShopModule } from '../shop/shop.module';
 import { BannerComponent } from './banner/banner.component';
@@ -22,6 +21,7 @@ import { HeaderLigthComponent } from './header/header-ligth/header-ligth.compone
 import { LoaderElipsisComponent } from './loader-elipsis/loader-elipsis.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SubscribersModule } from '../subscribers/subscribers.module';
+import { CatalogueModule } from '../catalogue/catalogue.module';
 
 const components = [
   HeaderInfoComponent,
@@ -46,7 +46,7 @@ const components = [
     CommonModule,
     ReactiveFormsModule,
     SharedRoutingModule,
-    ProductsModule,
+    CatalogueModule,
     SubscribersModule,
     ShopModule,
     NotificationModule,
