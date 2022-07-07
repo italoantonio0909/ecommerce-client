@@ -1,7 +1,8 @@
-import { Component, OnInit } from "@angular/core";
-import { SubscriberService, Subscriber } from "../../services/subscriber.service";
+import { Component } from "@angular/core";
+import { SubscriberService } from "../../services/subscriber.service";
 import { FormControl } from "@angular/forms";
 import { ToastMessage } from "../../../../helpers/index";
+import { Subscriber } from '../../entities/Subscriber';
 
 @Component({
   selector: "app-subscriber-create",

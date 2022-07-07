@@ -22,6 +22,7 @@ import { SubscriberState } from './modules/subscribers/store/state';
 import { CatalogueModule } from './modules/catalogue/catalogue.module';
 import { CatalogueState } from './modules/catalogue/store/state';
 import { BlogState } from './modules/blog/store/state';
+import { CustomersModule } from './modules/customers/customers.module';
 
 const CONTAINERS = [
   DefaultLayoutSweetComponent,
@@ -47,6 +48,7 @@ const states = [
     BlogModule,
     ContactModule,
     AboutModule,
+    CustomersModule,
     CatalogueModule,
     ShoppingCartModule,
     ShopModule,
