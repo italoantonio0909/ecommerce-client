@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeSweetComponent } from './shared/home/home-sweet/home-sweet.component';
-import { DefaultLayoutSweetComponent } from './shared/default-layout/default-layout-sweet/default-layout-sweet.component';
-import { DefaultLayoutDarkComponent } from './shared/default-layout/default-layout-dark/default-layout-dark.component';
-import { HomeDarkComponent } from './shared/home/home-dark/home-dark.component';
+import { DefaultLayoutSweetComponent } from './modules/shared/default-layout/default-layout-sweet/default-layout-sweet.component';
+import { HomeSweetComponent } from './modules/shared/home/home-sweet/home-sweet.component';
 
 const routes: Routes = [
   {
@@ -17,36 +15,36 @@ const routes: Routes = [
       {
         path: 'blog',
         loadChildren: () =>
-          import('./blog/blog.module').then((m) => m.BlogModule),
+          import('./modules/blog/blog.module').then((m) => m.BlogModule),
       },
       {
         path: 'shop',
         loadChildren: () =>
-          import('./shop/shop.module').then((m) => m.ShopModule),
+          import('./modules/shop/shop.module').then((m) => m.ShopModule),
       },
       {
         path: 'shopping-cart',
         loadChildren: () =>
-          import('./shopping-cart/shopping-cart.module').then(
+          import('./modules/shopping-cart/shopping-cart.module').then(
             (m) => m.ShoppingCartModule
           ),
       },
       {
         path: 'about',
         loadChildren: () =>
-          import('./about/about.module').then((m) => m.AboutModule),
+          import('./modules/about/about.module').then((m) => m.AboutModule),
       },
       {
         path: 'contact',
         loadChildren: () =>
-          import('./contact/contact.module').then((m) => m.ContactModule),
+          import('./modules/contact/contact.module').then((m) => m.ContactModule),
       },
     ],
   },
   {
     path: 'authentication',
     loadChildren: () =>
-      import('./authentication/authentication.module').then(
+      import('./modules/authentication/authentication.module').then(
         (m) => m.AuthenticationModule
       ),
   },
@@ -60,4 +58,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
