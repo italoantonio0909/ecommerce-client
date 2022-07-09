@@ -3,8 +3,6 @@ type PostStatus = "active" | "inactive"
 
 type CommentStatus = "active" | "inactive" | "banned"
 
-export type PostPaginate = { post: Array<Post>, startAfter: number }
-
 export interface Comment {
   readonly created_by: Customer;
   readonly content: string
@@ -26,4 +24,12 @@ export interface Post {
   readonly publish_at?: number
   readonly created_at?: number
   readonly modified_at?: number
+}
+
+export interface PostPaginate {
+  count: number;
+  limit: number;
+  next: number;
+  previous: number;
+  results: Array<Post>;
 }

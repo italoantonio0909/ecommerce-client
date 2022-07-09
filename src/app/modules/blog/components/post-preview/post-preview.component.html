@@ -11,13 +11,9 @@
     </div>
     <div class="p-t-32">
         <h4 class="p-b-15">
-            <div class="ltext-108 cl2 hov-cl1 trans-04">
-
-            </div>
+            <div class="ltext-108 cl2 hov-cl1 trans-04">{{data.title}}</div>
         </h4>
-        <p class="stext-117 cl6">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae debitis quia
-            pariatur, maxime, nulla vel ipsum laborum ab ex ipsam beatae consequuntur. Id accusantium incidunt
-            dignissimos? Laborum totam atque cumque!</p>
+        <p class="stext-117 cl6">{{data.meta_description}}</p>
         <div class="flex-sb-m p-t-18">
             <span class="flex-w flex-m stext-111 cl2 p-r-30 m-tb-10">
                 <span>
@@ -32,7 +28,7 @@
                     2022 / 20/ 09
                     <span class="cl12 m-l-4 m-r-6">|</span>
                 </span>
-                <span>22 comentarios</span>
+                <span>{{ data.number_comments }} comentarios</span>
             </span>
             <div class="cursor-pointer stext-101 cl2 hov-cl1 trans-04 m-tb-10">
                 Continuar leyendo

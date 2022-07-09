@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DefaultLayoutSweetComponent } from './modules/shared/default-layout/default-layout-sweet/default-layout-sweet.component';
 import { HomeSweetComponent } from './modules/shared/home/home-sweet/home-sweet.component';
-import { CustomersModule } from './modules/customers/customers.module';
 
 const routes: Routes = [
   {
