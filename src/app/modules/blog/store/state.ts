@@ -1,16 +1,16 @@
 import { Injectable } from "@angular/core";
 import { State, Selector, Action, StateContext } from '@ngxs/store';
-import { Post } from "../interfaces/blog-interfaces";
-import { PostSetList } from './actions';
+import { Post, PostPaginate } from "../entities/Blog";
+import { PostSetPaginate } from './actions';
 
 export interface BlogModelState {
-    posts: Array<Post>
+    posts: PostPaginate,
 }
 
 @State<BlogModelState>({
     name: 'blog',
     defaults: {
-        posts: []
+        posts: {} as PostPaginate
     }
 })
 @Injectable()
@@ -19,10 +19,10 @@ export class BlogState {
     static getPost(state: BlogModelState) {
         return state.posts
     }
-    @Action(PostSetList)
+    @Action(PostSetPaginate)
     setPost(
         { getState, setState }: StateContext<BlogModelState>,
-        { posts }: PostSetList
+        { posts }: PostSetPaginate
     ) {
         const state = getState();
         setState({ ...state, posts })

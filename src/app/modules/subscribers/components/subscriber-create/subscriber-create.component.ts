@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { SubscriberService } from "../../services/subscriber.service";
-import { FormControl } from "@angular/forms";
+import { FormControl, Validators } from '@angular/forms';
 import { ToastMessage } from "../../../../helpers/index";
 import { Subscriber } from '../../entities/Subscriber';
 
@@ -13,7 +13,7 @@ export class SubscriberCreateComponent {
   constructor(private subscriberService: SubscriberService) { }
   isLoading: boolean = false
 
-  email = new FormControl("");
+  email = new FormControl("", Validators.required);
 
   async subscriberCreate() {
     this.isLoading = true
@@ -41,7 +41,6 @@ export class SubscriberCreateComponent {
       );
 
     } finally {
-
       this.isLoading = false
     }
   }
