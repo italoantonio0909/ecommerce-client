@@ -1,11 +1,12 @@
 <div class="p-b-63">
     <div class="hov-img0 how-pos5-parent">
-        <img [routerLink]="['/blog/detail']" loading="lazy" src="../../../static/images/blog-04.jpg" alt="IMG-BLOG" />
+        <img [routerLink]="['/blog/retrieve-post', data.id]" loading="lazy" src="../../../static/images/blog-04.jpg"
+            alt="IMG-BLOG" />
         <div class="flex-col-c-m size-123 bg9 how-pos5">
-            <span class="ltext-107 cl2 txt-center">29</span>
+            <span class="ltext-107 cl2 txt-center">{{data.publish_at | date : 'dd'}}</span>
 
             <span class="stext-109 cl3 txt-center">
-                enero 2022
+                {{data.publish_at | date : 'MMM yy'}}
             </span>
         </div>
     </div>
@@ -25,12 +26,14 @@
                     <span class="cl12 m-l-4 m-r-6">|</span>
                 </span>
                 <span>
-                    2022 / 20/ 09
+                    {{ data.publish_at | date: 'yy/ M/ dd' }}
+
                     <span class="cl12 m-l-4 m-r-6">|</span>
                 </span>
                 <span>{{ data.number_comments }} comentarios</span>
             </span>
-            <div class="cursor-pointer stext-101 cl2 hov-cl1 trans-04 m-tb-10">
+            <div [routerLink]="['/blog/retrieve-post', data.id]"
+                class="cursor-pointer stext-101 cl2 hov-cl1 trans-04 m-tb-10">
                 Continuar leyendo
                 <i class="fa fa-long-arrow-right m-l-9"></i>
             </div>

@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Post } from '../../entities/Blog';
 import { BlogService } from '../../services/blog.service';
-import { Action, Select, Store } from '@ngxs/store';
+import { Select, Store } from '@ngxs/store';
 import { BlogState } from '../../store/state';
-import { PostSetPaginate } from '../../store/actions';
-
+import { PostFetchData } from '../../store/actions';
 
 @Component({
   selector: 'app-blog',
@@ -13,20 +12,16 @@ import { PostSetPaginate } from '../../store/actions';
 })
 export class BlogComponent implements OnInit {
 
-  constructor(public blogService: BlogService, private store: Store) { }
+  constructor(public blogService: BlogService, public store: Store) { }
 
-  @Select(BlogState.getPost) posts$!: Observable<Array<Post>>;
+  @Select(BlogState.postGet) posts$!: Observable<Array<Post>>;
 
-  async postPaginate() {
-    try {
-      const posts = await this.blogService.postPaginate(3, 0).toPromise()
-      this.store.dispatch(new PostSetPaginate(posts))
-    } catch (error) {
-      console.log(error)
-    }
+  @Select(BlogState.postPaginateCount) paginateCount$!: Observable<number>;
+
+  counter(element: number) {
+    return new Array(element);
   }
 
-  ngOnInit(): void {
-    this.postPaginate()
-  }
+  ngOnInit() { this.store.dispatch(new PostFetchData()) }
+
 }

@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CustomersService } from '../../services/customers.service';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { AlertMessage, ToastMessage } from '../../../../helpers/index';
+import { ToastMessage } from '../../../../helpers/index';
 import { Customer } from '../../entities/Customer';
 
 @Component({
