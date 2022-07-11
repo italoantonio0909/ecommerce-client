@@ -4,7 +4,6 @@ import { of } from 'rxjs';
 @Component({
   selector: 'app-product-section',
   templateUrl: './product-section.component.html',
-  styleUrls: ['./product-section.component.css'],
 })
 export class ProductSectionComponent implements OnInit {
   products$ = of([1, 2, 3, 4, 5]);
@@ -13,7 +12,7 @@ export class ProductSectionComponent implements OnInit {
 
   filterProduct: boolean = false;
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }
