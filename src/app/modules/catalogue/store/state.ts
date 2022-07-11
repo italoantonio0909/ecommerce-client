@@ -23,6 +23,11 @@ export class CatalogueState {
     constructor(private catalogueService: CatalogueService) { }
 
     @Selector()
+    static productPaginate(state: CatalogueStateModel) {
+        return state.products;
+    }
+
+    @Selector()
     static getProductDetail(state: CatalogueStateModel) {
         return state.productdetail;
     }

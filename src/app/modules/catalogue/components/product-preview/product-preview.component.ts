@@ -4,10 +4,10 @@ import { Select2OptionData } from 'ng-select2';
 import { ProductDetail } from '../../store/actions';
 
 @Component({
-  selector: 'app-product-detail',
-  templateUrl: './product-detail.component.html',
+  selector: 'app-product-preview',
+  templateUrl: './product-preview.component.html',
 })
-export class ProductDetailComponent implements OnInit {
+export class ProductPreviewComponent implements OnInit {
   colorSelected: Select2OptionData = {} as Select2OptionData;
 
   sizeSelected: Select2OptionData = {} as Select2OptionData;
