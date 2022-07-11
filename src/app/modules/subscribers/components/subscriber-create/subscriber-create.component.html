@@ -8,8 +8,8 @@
         </div>
 
         <div class="p-t-18 animate__animated">
-            <button (click)="subscriberCreate()" type="button" [ngClass]="{'hov-btn2' : !isLoading}"
-                class="flex-c-m stext-101 cl0 size-103 bg1 bor1 p-lr-15 trans-04">
+            <button (click)="subscriberCreate()" [disabled]="email.invalid" type="button"
+                [ngClass]="{'hov-btn2' : !isLoading}" class="flex-c-m stext-101 cl0 size-103 bg1 bor1 p-lr-15 trans-04">
                 <div *ngIf="!isLoading; else loading">Suscribirme</div>
                 <ng-template #loading>
                     <div class="lds-ellipsis">

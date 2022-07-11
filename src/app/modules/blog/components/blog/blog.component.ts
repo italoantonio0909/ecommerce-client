@@ -4,7 +4,7 @@ import { Post } from '../../entities/Blog';
 import { BlogService } from '../../services/blog.service';
 import { Action, Select, Store } from '@ngxs/store';
 import { BlogState } from '../../store/state';
-import { PostSetList } from '../../store/actions';
+import { PostSetPaginate } from '../../store/actions';
 
 
 @Component({
@@ -20,7 +20,7 @@ export class BlogComponent implements OnInit {
   async postPaginate() {
     try {
       const posts = await this.blogService.postPaginate(3, 0).toPromise()
-      this.store.dispatch(new PostSetList(posts))
+      this.store.dispatch(new PostSetPaginate(posts))
     } catch (error) {
       console.log(error)
     }
