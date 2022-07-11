@@ -18,4 +18,10 @@ export class BlogService {
         map(e => e)
       );
   }
+  postRetrieveDetail(postUid: string): Observable<Post> {
+    return this.http.get<Post>(`${getUrl()}/api/posts/retrieve-detail/${postUid}`).
+      pipe(
+        map(e => e)
+      );
+  }
 }

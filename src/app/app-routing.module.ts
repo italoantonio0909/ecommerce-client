@@ -6,10 +6,15 @@ import { HomeSweetComponent } from './modules/shared/home/home-sweet/home-sweet.
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
     component: DefaultLayoutSweetComponent,
     children: [
       {
-        path: '',
+        path: 'home',
         component: HomeSweetComponent,
       },
       {

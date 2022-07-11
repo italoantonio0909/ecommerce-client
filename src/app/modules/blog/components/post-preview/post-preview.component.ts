@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Post } from '../../entities/Blog';
 
 @Component({
@@ -6,9 +7,9 @@ import { Post } from '../../entities/Blog';
   templateUrl: './post-preview.component.html',
 })
 export class PostPreviewComponent implements OnInit {
-  @Input() data: Post = {} as Post;
+  constructor(private router: Router) { }
 
-  constructor() { }
+  @Input() data: Post = {} as Post;
 
   ngOnInit(): void { }
 }

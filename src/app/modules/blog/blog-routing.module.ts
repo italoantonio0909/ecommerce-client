@@ -9,13 +9,18 @@ const routes: Routes = [
     children: [
       {
         path: '',
+        redirectTo: 'posts',
+        pathMatch: 'full'
+      },
+      {
+        path: '',
         component: BlogComponent,
       },
       {
-        path: 'detail',
+        path: 'retrieve-post/:postUid',
         component: PostComponent,
       },
-    ],
+    ]
   },
 ];
 

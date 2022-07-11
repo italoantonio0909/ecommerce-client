@@ -1,6 +1,9 @@
-import { PostPaginate } from "../entities/Blog";
-
-export class PostSetPaginate {
+export class PostFetchData {
     static readonly type = 'Post [] Post set list';
-    constructor(public posts: PostPaginate) { }
+    constructor() { }
+}
+
+export class PostRetrieveDetail {
+    static readonly type = 'Post [] Post retrieve detail';
+    constructor(public postUid: string) { }
 }
