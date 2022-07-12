@@ -1,34 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngxs/store';
-import { Select2OptionData } from 'ng-select2';
+import { Component, Input } from '@angular/core';
+import { Store, Select } from '@ngxs/store';
 import { ProductDetail } from '../../store/actions';
+import { Product } from '../../entities/Product';
+import { CatalogueState } from '../../store/state';
+import { ToastMessage } from '../../../../helpers/index';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-preview',
   templateUrl: './product-preview.component.html',
 })
-export class ProductPreviewComponent implements OnInit {
-  colorSelected: Select2OptionData = {} as Select2OptionData;
-
-  sizeSelected: Select2OptionData = {} as Select2OptionData;
-
+export class ProductPreviewComponent {
   constructor(private store: Store) { }
 
-  ngOnInit(): void { }
+  @Input() data: Product = {} as Product;
 
-  closeModal() {
-    this.store.dispatch(new ProductDetail(false));
+  @Select(CatalogueState.getProductDetail) productDetail!: Observable<any>;
+
+  showAlert() {
+    ToastMessage('Producto agregado a favoritos', 'success');
   }
-  colors: Array<Select2OptionData> = [
-    { id: 'red', text: 'Rojo' },
-    { id: 'blue', text: 'Azul' },
-    { id: 'white', text: 'Blanco' },
-    { id: 'grey', text: 'Gris' },
-  ];
-  sizes: Array<Select2OptionData> = [
-    { id: 's', text: 'S' },
-    { id: 'm', text: 'M' },
-    { id: 'L', text: 'L' },
-    { id: 'XL', text: 'XL' },
-  ];
+
+  productDetailSetup() {
+    this.store.dispatch(new ProductDetail(true));
+  }
 }

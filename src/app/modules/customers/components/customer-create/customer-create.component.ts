@@ -43,11 +43,11 @@ export class CustomerCreateComponent {
 
     try {
       await this.customerService.customerCreate(customer).toPromise();
-      ToastMessage("Cuenta creada", "success", "bottom-right", "dark");
+      ToastMessage("Cuenta creada", "success", "bottom-left", "dark");
 
     } catch (error) {
       console.log(error)
-      ToastMessage(error.error.error, "error", "bottom-right", "dark");
+      ToastMessage(error.error.error, "error", "bottom-left", "dark");
 
     } finally {
       this.isLoading = false;
