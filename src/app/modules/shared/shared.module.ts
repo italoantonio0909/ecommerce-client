@@ -21,6 +21,7 @@ import { LoaderElipsisComponent } from './loader-elipsis/loader-elipsis.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { SubscribersModule } from '../subscribers/subscribers.module';
 import { CatalogueModule } from '../catalogue/catalogue.module';
+import { CampaignModule } from '../retention/campaign/campaign.module';
 
 const components = [
   HeaderInfoComponent,
@@ -46,6 +47,7 @@ const components = [
     SharedRoutingModule,
     CatalogueModule,
     SubscribersModule,
+    CampaignModule,
     ShopModule,
     NotificationModule,
   ],
