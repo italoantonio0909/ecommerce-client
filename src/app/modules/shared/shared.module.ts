@@ -9,7 +9,6 @@ import { HeaderImageComponent } from './header-image/header-image.component';
 import { NotificationModule } from '../notification/notification.module';
 import { ShopModule } from '../shop/shop.module';
 import { BannerComponent } from './banner/banner.component';
-import { SliderPreviewComponent } from './slider-preview/slider-preview.component';
 import { SearchPanelComponent } from './search-panel/search-panel.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { HomeSweetComponent } from './home/home-sweet/home-sweet.component';
@@ -29,7 +28,6 @@ const components = [
   BackTopComponent,
   BannerComponent,
   HeaderImageComponent,
-  SliderPreviewComponent,
   SearchPanelComponent,
   HomeSweetComponent,
   HomeDarkComponent,
@@ -50,7 +48,6 @@ const components = [
     SubscribersModule,
     ShopModule,
     NotificationModule,
-    SlickCarouselModule,
   ],
   exports: [components],
 })

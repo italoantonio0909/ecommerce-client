@@ -7,7 +7,6 @@ import { CatalogueState } from '../../../catalogue/store/state';
 @Component({
   selector: 'app-default-layout-sweet',
   templateUrl: './default-layout-sweet.component.html',
-  styleUrls: ['./default-layout-sweet.component.css'],
 })
 export class DefaultLayoutSweetComponent implements OnInit {
   constructor() { }

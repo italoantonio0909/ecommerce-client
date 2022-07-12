@@ -41,9 +41,9 @@
                         </a>
                     </div>
                     <div class="bor8 m-b-30">
-                        <input formControlName="passwordConfirm" autocomplete="off"
-                            class="stext-111 cl2 plh3 size-116 p-l-25 p-r-30" type="text" name="passwordConfirm"
-                            placeholder="Confirmar contraseña">
+                        <input [type]="hiddenPassword ? 'password' : 'text'" formControlName="passwordConfirm"
+                            autocomplete="off" class="stext-111 cl2 plh3 size-116 p-l-25 p-r-30" type="text"
+                            name="passwordConfirm" placeholder="Confirmar contraseña">
                     </div>
                     <button type="button" (click)="customerCreate()" [ngClass]="{'hov-btn3' : !isLoading}"
                         class="flex-c-m stext-101 cl0 size-121 bg1 bor1 p-lr-15 trans-04 pointer">

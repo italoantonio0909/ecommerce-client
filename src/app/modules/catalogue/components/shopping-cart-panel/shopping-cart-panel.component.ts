@@ -7,7 +7,6 @@ import { ShoppingCartSetup } from '../../../../store/shared/shared.actions';
 @Component({
   selector: 'app-shopping-cart-panel',
   templateUrl: './shopping-cart-panel.component.html',
-  styleUrls: ['./shopping-cart-panel.component.css'],
 })
 export class ShoppingCartPanelComponent implements OnInit {
   constructor(public store: Store) { }
