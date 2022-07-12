@@ -15,7 +15,7 @@
                             autocomplete="off" placeholder="Contraseña">
                     </div>
                     <div class="m-b-30 d-flex justify-content-end">
-                        <span [routerLink]="['/authentication/recovery-password']"
+                        <span [routerLink]="['/customers/reset-password']"
                             class="cursor-pointer stext-111 cl1 m-l-5">Recuperar contraseña</span>
                     </div>
                     <button type="button" (click)="isLoading = !isLoading"
@@ -35,7 +35,7 @@
                         <div class="col-sm">
                             <h4 class="stext-111 txt-center cl2">
                                 No tienes una cuenta?
-                                <span [routerLink]="['/customers/customersCreate']"
+                                <span [routerLink]="['/customers/create']"
                                     class="cursor-pointer stext-111 cl1 m-l-5">Crear una
                                     cuenta</span>
                             </h4>
