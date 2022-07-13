@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ToastMessage } from "../../../../helpers/index";
 import { Subscriber } from '../../entities/Subscriber';
 import { Store } from '@ngxs/store';
@@ -11,16 +11,19 @@ import { SubscriberCreate } from '../../store/actions';
 })
 export class SubscriberCreateComponent {
 
-  constructor(private store: Store) { }
-  isLoading: boolean = true
+  constructor(private store: Store, private formBuilder: FormBuilder) { }
 
-  email = new FormControl("", Validators.required);
+  isLoading: boolean = false
+
+  subscriberCreateForm = this.formBuilder.group({
+    email: new FormControl("", Validators.required)
+  })
 
   async subscriberCreate() {
     this.isLoading = true
 
     const subscriber: Subscriber = {
-      email: this.email.value,
+      email: this.subscriberCreateForm.get("email").value
     };
 
     try {
@@ -46,4 +49,7 @@ export class SubscriberCreateComponent {
     }
   }
 
+  get email() {
+    return this.subscriberCreateForm.get("email")
+  }
 }
