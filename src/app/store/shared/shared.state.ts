@@ -3,11 +3,9 @@ import { Action, Selector, State, StateContext } from '@ngxs/store';
 import {
   NotificationSetup,
   SearchSetup,
-  ShoppingCartSetup,
 } from './shared.actions';
 
 interface SharedStateModel {
-  shoppingCartPanel: boolean;
   notificationPanel: boolean;
   searchModal: boolean;
 }
@@ -17,7 +15,6 @@ interface SharedStateModel {
   defaults: {
     notificationPanel: false,
     searchModal: false,
-    shoppingCartPanel: false,
   },
 })
 @Injectable()
@@ -29,10 +26,6 @@ export class SharedState {
   @Selector()
   static getSearchSetup(state: SharedStateModel) {
     return state.searchModal;
-  }
-  @Selector()
-  static getShoppingCartSetup(state: SharedStateModel) {
-    return state.shoppingCartPanel;
   }
   @Action(NotificationSetup)
   notificationSetup(
@@ -54,17 +47,6 @@ export class SharedState {
     setState({
       ...state,
       searchModal: open,
-    });
-  }
-  @Action(ShoppingCartSetup)
-  shoppingCartSetup(
-    { setState, getState }: StateContext<SharedStateModel>,
-    { open }: ShoppingCartSetup
-  ) {
-    const state = getState();
-    setState({
-      ...state,
-      shoppingCartPanel: open,
     });
   }
 }

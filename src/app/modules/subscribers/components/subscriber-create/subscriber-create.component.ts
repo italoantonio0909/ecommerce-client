@@ -1,8 +1,9 @@
 import { Component } from "@angular/core";
-import { SubscriberService } from "../../services/subscriber.service";
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators, FormBuilder } from '@angular/forms';
 import { ToastMessage } from "../../../../helpers/index";
 import { Subscriber } from '../../entities/Subscriber';
+import { Store } from '@ngxs/store';
+import { SubscriberCreate } from '../../store/actions';
 
 @Component({
   selector: "app-subscriber-create",
@@ -10,20 +11,23 @@ import { Subscriber } from '../../entities/Subscriber';
 })
 export class SubscriberCreateComponent {
 
-  constructor(private subscriberService: SubscriberService) { }
+  constructor(private store: Store, private formBuilder: FormBuilder) { }
+
   isLoading: boolean = false
 
-  email = new FormControl("", Validators.required);
+  subscriberCreateForm = this.formBuilder.group({
+    email: new FormControl("", Validators.required)
+  })
 
   async subscriberCreate() {
     this.isLoading = true
 
     const subscriber: Subscriber = {
-      email: this.email.value,
+      email: this.subscriberCreateForm.get("email").value
     };
 
     try {
-      await this.subscriberService.subscriberCreate(subscriber).toPromise();
+      await this.store.dispatch(new SubscriberCreate(subscriber)).toPromise()
 
       ToastMessage(
         "Serás alertado de cualquier novedad en la tienda",
@@ -45,4 +49,7 @@ export class SubscriberCreateComponent {
     }
   }
 
+  get email() {
+    return this.subscriberCreateForm.get("email")
+  }
 }

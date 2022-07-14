@@ -1,30 +1,30 @@
-import { State, Selector, Action, StateContext } from '@ngxs/store';
+import { State, Action, StateContext } from '@ngxs/store';
 import { Injectable } from '@angular/core';
-import { SubscriberRegistered } from './actions';
+import { SubscriberCreate } from './actions';
+import { SubscriberService } from '../services/subscriber.service';
+import { map } from 'rxjs/operators';
 
 export interface SubscriberModelState {
-    isRegistered: boolean
 }
 
 @State<SubscriberModelState>({
     name: 'subscribers',
     defaults: {
-        isRegistered: false
     }
 })
 @Injectable()
 export class SubscriberState {
-    @Selector()
-    static getSubscriberRegistered(state: SubscriberModelState) {
-        return state.isRegistered
-    }
-    @Action(SubscriberRegistered)
+
+    constructor(private subscriberService: SubscriberService) { }
+
+    @Action(SubscriberCreate)
     subscriberRegistered(
-        { getState, setState }: StateContext<SubscriberModelState>,
-        { isRegistered }: SubscriberRegistered
+        ctx: StateContext<SubscriberModelState>,
+        { subscriber }: SubscriberCreate
     ) {
-        const state = getState();
-        setState({ ...state, isRegistered: isRegistered })
+        return this.subscriberService.subscriberCreate(subscriber).pipe(
+            map(e => e)
+        )
     }
 
 }

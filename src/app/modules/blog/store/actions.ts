@@ -1,9 +1,9 @@
 export class PostFetchData {
-    static readonly type = 'Post [] Post set list';
+    static readonly type = 'Post fetch data';
     constructor() { }
 }
 
 export class PostRetrieveDetail {
-    static readonly type = 'Post [] Post retrieve detail';
+    static readonly type = 'Post retrieve detail';
     constructor(public postUid: string) { }
 }

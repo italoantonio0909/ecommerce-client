@@ -1,8 +1,8 @@
 <div>
     <h4 class="stext-301 cl0 p-b-30">RECIBIR NOTIFICACIONES</h4>
-    <form>
+    <form [formGroup]="subscriberCreateForm">
         <div class="wrap-input1 w-full p-b-4">
-            <input class="input1 bg-none plh1 stext-107 cl7" type="email" [formControl]="email" autoComplete="off"
+            <input class="input1 bg-none plh1 stext-107 cl7" formControlName="email" type="email" autoComplete="off"
                 placeholder="email@ejemplo.com" />
             <div class="focus-input1 trans-04"></div>
         </div>

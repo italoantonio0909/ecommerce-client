@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Store } from '@ngxs/store';
-import { NotificationSetup, SearchSetup, ShoppingCartSetup } from '../../../../store/shared/shared.actions';
+import { NotificationSetup, SearchSetup } from '../../../../store/shared/shared.actions';
+import { BasketPanelShow } from '../../../basket/store/action';
 
 @Component({
   selector: 'app-header-sweet',
   templateUrl: './header-sweet.component.html',
-  styleUrls: ['./header-sweet.component.css'],
 })
 export class HeaderSweetComponent implements OnInit {
   constructor(private store: Store) { }
@@ -20,7 +20,7 @@ export class HeaderSweetComponent implements OnInit {
   }
 
   shoppingCartPanel() {
-    this.store.dispatch(new ShoppingCartSetup(true));
+    this.store.dispatch(new BasketPanelShow(true));
   }
 
   ngOnInit(): void {

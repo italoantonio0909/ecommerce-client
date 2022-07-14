@@ -9,8 +9,8 @@
     <ng-template [ngIf]="notificationSetup$ | async">
         <app-notification-panel></app-notification-panel>
     </ng-template>
-    <ng-template [ngIf]="shoppingCartSetup$ | async">
-        <app-shopping-cart-panel></app-shopping-cart-panel>
+    <ng-template [ngIf]="basketPanel$ | async">
+        <app-basket-panel></app-basket-panel>
     </ng-template>
     <ng-template [ngIf]="searchSetup$ | async">
         <app-search-panel></app-search-panel>
