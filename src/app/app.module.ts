@@ -25,6 +25,7 @@ import { BlogState } from './modules/blog/store/state';
 import { CustomersModule } from './modules/customers/customers.module';
 import { CampaignModule } from './modules/retention/campaign/campaign.module';
 import { BasketModule } from './modules/basket/basket.module';
+import { BasketState } from './modules/basket/store/state';
 
 const CONTAINERS = [
   DefaultLayoutSweetComponent,
@@ -36,7 +37,8 @@ const states = [
   SharedState,
   CatalogueState,
   SubscriberState,
-  BlogState
+  BlogState,
+  BasketState
 ]
 
 @NgModule({
