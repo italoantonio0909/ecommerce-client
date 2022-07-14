@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
 import { Observable } from 'rxjs';
-import { SharedState } from '../../../../store/shared/shared.state';
-import { ShoppingCartSetup } from '../../../../store/shared/shared.actions';
+import { SharedState } from '../../../store/shared/shared.state';
+import { ShoppingCartSetup } from '../../../store/shared/shared.actions';
 
 @Component({
-  selector: 'app-shopping-cart-panel',
-  templateUrl: './shopping-cart-panel.component.html',
+  selector: 'app-basket-panel',
+  templateUrl: './basket-panel.component.html',
 })
-export class ShoppingCartPanelComponent implements OnInit {
+export class BasketPanelComponent implements OnInit {
   constructor(public store: Store) { }
 
   @Select(SharedState.getShoppingCartSetup)

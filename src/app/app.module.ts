@@ -24,6 +24,7 @@ import { CatalogueState } from './modules/catalogue/store/state';
 import { BlogState } from './modules/blog/store/state';
 import { CustomersModule } from './modules/customers/customers.module';
 import { CampaignModule } from './modules/retention/campaign/campaign.module';
+import { BasketModule } from './modules/basket/basket.module';
 
 const CONTAINERS = [
   DefaultLayoutSweetComponent,
@@ -49,6 +50,7 @@ const states = [
     BlogModule,
     ContactModule,
     CampaignModule,
+    BasketModule,
     AboutModule,
     CustomersModule,
     CatalogueModule,
