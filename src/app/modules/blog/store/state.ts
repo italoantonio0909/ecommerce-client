@@ -14,13 +14,12 @@ export interface BlogModelState {
     name: 'blog',
     defaults: {
         posts: [],
-        count: 0,
+        count: 0
     }
 })
 @Injectable()
 export class BlogState {
 
-    constructor(private blogService: BlogService) { }
 
     @Selector()
     static postGet(state: BlogModelState) {
@@ -32,10 +31,11 @@ export class BlogState {
         return state.count / 3
     }
 
-    @Selector()
-    static postById(state: BlogModelState, postUid: string) {
-        return state.posts.find(({ id }) => id === postUid)
+    static postById(postUid: string) {
+        return createSelector([BlogState], (state: BlogModelState) => state.posts.find(({ id }) => id === postUid));
     }
+
+    constructor(private blogService: BlogService) { }
 
     @Action(PostFetchData)
     postFetchData(
@@ -49,14 +49,14 @@ export class BlogState {
     postRetrieveDetail(ctx: StateContext<BlogModelState>, { postUid }: PostRetrieveDetail) {
         const state = ctx.getState();
 
-        const posts = state.posts;
+        const postFinded = state.posts.find(({ id }) => id === postUid);
 
-        if (posts) {
-            return false;
+        if (postFinded) {
+            return state;
         }
 
         return this.blogService.postRetrieveDetail(postUid).pipe(
-            map(e => ctx.patchState({ ...state, [postUid]: e }))
+            tap((e) => ctx.setState({ ...state, posts: [e] }))
         )
     }
 

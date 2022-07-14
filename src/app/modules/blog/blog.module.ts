@@ -8,8 +8,9 @@ import { PostComponent } from './components/post/post.component';
 import { PostPreviewComponent } from './components/post-preview/post-preview.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { PostAddCommentComponent } from './components/post-add-comment/post-add-comment.component';
 
-const components = [BlogComponent, PostPreviewComponent, PostComponent];
+const components = [BlogComponent, PostPreviewComponent, PostComponent, PostAddCommentComponent];
 
 @NgModule({
   declarations: [components],

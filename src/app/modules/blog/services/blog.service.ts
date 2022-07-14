@@ -13,13 +13,13 @@ export class BlogService {
   constructor(private http: HttpClient) { }
 
   postPaginate(limit: number, startAfter: number): Observable<PostPaginate> {
-    return this.http.get<PostPaginate>(`${getUrl()}/api/posts/${limit}/${startAfter}`).
+    return this.http.get<PostPaginate>(`${getUrl()}/api/posts/fetch/${limit}/${startAfter}`).
       pipe(
         map(e => e)
       );
   }
   postRetrieveDetail(postUid: string): Observable<Post> {
-    return this.http.get<Post>(`${getUrl()}/api/posts/retrieve-detail/${postUid}`).
+    return this.http.get<Post>(`${getUrl()}/api/posts/retrieve-post/${postUid}`).
       pipe(
         map(e => e)
       );

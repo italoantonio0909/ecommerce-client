@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngxs/store';
 import { Subject } from 'rxjs';
@@ -13,14 +13,16 @@ import { Post } from '../../entities/Blog';
 })
 export class PostComponent {
 
+  @Input() post: Post = {} as Post;
+
   private destroy$ = new Subject<void>();
 
   constructor(route: ActivatedRoute, store: Store) {
     route.params.pipe(
       switchMap(params => store.dispatch(new PostRetrieveDetail(params.postUid))
-        .pipe(mergeMap(() => store.select((state) => state.posts)))),
+        .pipe(mergeMap(() => store.select(BlogState.postById(params.postUid))))),
       takeUntil(this.destroy$)
-    ).subscribe((e) => console.log(e))
+    ).subscribe((e) => this.post = e)
   }
 
   ngOnDestroy() {
