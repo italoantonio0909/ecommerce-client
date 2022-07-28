@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { getUrl } from 'src/app/helpers';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators'
-import { Post, PostPaginate } from '../entities/Blog';
+import { Post } from '../entities/Blog';
+import { Paginate } from '../../shared/interfaces/Paginate';
 
 @Injectable({
   providedIn: 'root'
@@ -12,14 +13,14 @@ export class BlogService {
 
   constructor(private http: HttpClient) { }
 
-  postPaginate(limit: number, startAfter: number): Observable<PostPaginate> {
-    return this.http.get<PostPaginate>(`${getUrl()}/api/posts/fetch/${limit}/${startAfter}`).
+  postPaginateList(limitOfDocuments: number, page: number): Observable<Paginate<Post>> {
+    return this.http.get<Paginate<Post>>(`${getUrl()}/api/blog/posts/paginate/${limitOfDocuments}/${page}`).
       pipe(
         map(e => e)
       );
   }
   postRetrieveDetail(postUid: string): Observable<Post> {
-    return this.http.get<Post>(`${getUrl()}/api/posts/retrieve-post/${postUid}`).
+    return this.http.get<Post>(`${getUrl()}/api/blog/retrieve-post/${postUid}`).
       pipe(
         map(e => e)
       );

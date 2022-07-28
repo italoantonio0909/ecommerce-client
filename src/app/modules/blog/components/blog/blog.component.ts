@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Post } from '../../entities/Blog';
-import { BlogService } from '../../services/blog.service';
 import { Select, Store } from '@ngxs/store';
 import { BlogState } from '../../store/state';
-import { PostFetchData } from '../../store/actions';
+import { PostPaginateList } from '../../store/actions';
 
 @Component({
   selector: 'app-blog',
@@ -12,16 +11,28 @@ import { PostFetchData } from '../../store/actions';
 })
 export class BlogComponent implements OnInit {
 
-  constructor(public blogService: BlogService, public store: Store) { }
+  limitOfDocuments: number = 3;
 
-  @Select(BlogState.postGet) posts$!: Observable<Array<Post>>;
+  page: number = 1;
 
-  @Select(BlogState.postPaginateCount) paginateCount$!: Observable<number>;
+  constructor(public store: Store) { }
 
-  counter(element: number) {
-    return new Array(element);
+  @Select(BlogState.postPaginateList) posts$!: Observable<Array<Post>>;
+
+  @Select(BlogState.postPaginateListCount) paginateCount$!: Observable<number>;
+
+  counter(total: number) {
+    const elements = Math.ceil(total / this.limitOfDocuments);
+
+    return new Array(elements);
   }
 
-  ngOnInit() { this.store.dispatch(new PostFetchData()) }
+  postPaginateListCount(page: number) {
+    this.page = page;
+
+    this.store.dispatch(new PostPaginateList(this.limitOfDocuments, page));
+  }
+
+  ngOnInit() { this.store.dispatch(new PostPaginateList(this.limitOfDocuments, this.page)) }
 
 }

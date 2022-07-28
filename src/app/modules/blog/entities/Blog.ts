@@ -25,11 +25,3 @@ export interface Post {
   readonly created_at?: number
   readonly modified_at?: number
 }
-
-export interface PostPaginate {
-  count: number;
-  limit: number;
-  next: number;
-  previous: number;
-  results: Array<Post>;
-}

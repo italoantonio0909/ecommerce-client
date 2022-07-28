@@ -6,7 +6,13 @@
                     <h4 class="mtext-105 cl2 txt-center p-b-30">
                         Crear una cuenta
                     </h4>
+                    <div *ngIf="displayName?.invalid && (displayName?.dirty || displayName?.touched)"
+                        class="alert alert-danger">
 
+                        <div *ngIf="displayName?.errors?.['required']">
+                            Nombres requerido.
+                        </div>
+                    </div>
                     <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="alert alert-danger">
 
                         <div *ngIf="email?.errors?.['required']">
@@ -27,12 +33,15 @@
                         </div>
                     </div>
                     <div class="bor8 m-b-20">
-                        <input formControlName="email" autocomplete="off"
-                            class="stext-111 cl2 plh3 size-116 p-l-25 p-r-30" type="text" name="email"
-                            placeholder="Correo electrónico">
+                        <input formControlName="displayName" autocomplete="off" class="size-116 p-l-25 p-r-30 cl13"
+                            type="text" name="displayName" placeholder="Nombres">
+                    </div>
+                    <div class="bor8 m-b-20">
+                        <input formControlName="email" autocomplete="off" class="size-116 p-l-25 p-r-30 cl13"
+                            type="text" name="email" placeholder="Correo electrónico">
                     </div>
                     <div class="bor8 m-b-20 how-pos6-parent">
-                        <input formControlName="password" class="stext-111 cl2 plh3 size-116 p-l-25 p-r-30"
+                        <input formControlName="password" class="size-116 p-l-25 p-r-30 cl13"
                             [type]="hiddenPassword ? 'password' : 'text'" autocomplete="off" placeholder="Contraseña">
                         <a class="how-pos6 fs-18 cl8 trans-04 cursor-pointer"
                             (click)="hiddenPassword = !hiddenPassword">
@@ -42,8 +51,8 @@
                     </div>
                     <div class="bor8 m-b-30">
                         <input [type]="hiddenPassword ? 'password' : 'text'" formControlName="passwordConfirm"
-                            autocomplete="off" class="stext-111 cl2 plh3 size-116 p-l-25 p-r-30" type="text"
-                            name="passwordConfirm" placeholder="Confirmar contraseña">
+                            autocomplete="off" class="size-116 p-l-25 p-r-30 cl13" type="text" name="passwordConfirm"
+                            placeholder="Confirmar contraseña">
                     </div>
                     <button type="button" (click)="customerCreate()" [ngClass]="{'hov-btn3' : !isLoading}"
                         class="flex-c-m stext-101 cl0 size-121 bg1 bor1 p-lr-15 trans-04 pointer">
