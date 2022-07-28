@@ -11,14 +11,11 @@
                     </div>
                     <div *ngIf="paginateCount$ | async as count" class="flex-l-m flex-w w-full p-t-10 m-lr--7">
                         <div *ngFor="let in of counter(count); let i = index">
-                            <div href="#" class="flex-c-m how-pagination1 trans-04 m-all-7">
+                            <div (click)="postPaginateListCount(i+1)" [ngClass]="{'active-pagination1': i + 1 == page}"
+                                class="cursor-pointer flex-c-m how-pagination1 trans-04 m-all-7">
                                 {{i+1}}
                             </div>
                         </div>
-                        <!-- </div> -->
-                        <!-- <div href="#" class="flex-c-m how-pagination1 trans-04 m-all-7 active-pagination1">
-                            1
-                        </div>-->
                     </div>
                 </div>
             </div>

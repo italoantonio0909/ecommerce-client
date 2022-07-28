@@ -23,6 +23,7 @@ export class CustomerCreateComponent {
     email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
     passwordConfirm: new FormControl('', Validators.required),
+    displayName: new FormControl('', Validators.required),
   });
 
 
@@ -33,12 +34,13 @@ export class CustomerCreateComponent {
     const email = this.customerCreateForm.get('email')?.value! as string;
     const password = this.customerCreateForm.get('password')?.value as string;
     const passwordConfirm = this.customerCreateForm.get('passwordConfirm')?.value;
+    const displayName = this.customerCreateForm.get('displayName')?.value;
 
     const customer: Customer = {
       disabled: false,
       email: email,
-      password: password
-
+      password: password,
+      displayName: displayName
     };
 
     try {
@@ -64,6 +66,11 @@ export class CustomerCreateComponent {
 
   get passwordConfirm() {
     return this.customerCreateForm.get('passwordConfirm');
+  }
+
+  get displayName() {
+    return this.customerCreateForm.get('displayName');
+
   }
 
 }

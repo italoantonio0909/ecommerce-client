@@ -37,8 +37,9 @@ export class SubscriberCreateComponent {
       );
 
     } catch (error) {
+      console.log(error)
       ToastMessage(
-        error.error.error,
+        error.error.message,
         "error",
         "bottom-left",
         "white"

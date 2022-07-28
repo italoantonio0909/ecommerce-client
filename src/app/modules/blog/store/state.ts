@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { State, Selector, Action, StateContext, createSelector } from '@ngxs/store';
-import { Post, PostPaginate } from '../entities/Blog';
-import { PostFetchData, PostRetrieveDetail } from './actions';
+import { Post } from '../entities/Blog';
+import { PostPaginateList, PostRetrieveDetail } from './actions';
 import { BlogService } from '../services/blog.service';
 import { tap, map } from 'rxjs/operators';
 
@@ -20,28 +20,31 @@ export interface BlogModelState {
 @Injectable()
 export class BlogState {
 
+    constructor(private blogService: BlogService) { }
 
     @Selector()
-    static postGet(state: BlogModelState) {
+    static postPaginateList(state: BlogModelState) {
         return state.posts
     }
 
     @Selector()
-    static postPaginateCount(state: BlogModelState) {
-        return state.count / 3
+    static postPaginateListCount(state: BlogModelState) {
+        return state.count
     }
 
     static postById(postUid: string) {
         return createSelector([BlogState], (state: BlogModelState) => state.posts.find(({ id }) => id === postUid));
     }
 
-    constructor(private blogService: BlogService) { }
+    @Action(PostPaginateList)
+    postPaginateList(
+        { getState, setState }: StateContext<BlogModelState>,
+        { limitOfDocuments, page }: PostPaginateList
+    ) {
 
-    @Action(PostFetchData)
-    postFetchData(
-        { getState, setState }: StateContext<BlogModelState>) {
         const state = getState();
-        return this.blogService.postPaginate(3, 0).pipe(
+
+        return this.blogService.postPaginateList(limitOfDocuments, page).pipe(
             tap(({ results, count }) => setState({ ...state, posts: results, count: count })))
     }
 

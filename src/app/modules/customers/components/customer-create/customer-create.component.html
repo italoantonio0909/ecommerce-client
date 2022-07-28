@@ -6,7 +6,13 @@
                     <h4 class="mtext-105 cl2 txt-center p-b-30">
                         Crear una cuenta
                     </h4>
+                    <div *ngIf="displayName?.invalid && (displayName?.dirty || displayName?.touched)"
+                        class="alert alert-danger">
 
+                        <div *ngIf="displayName?.errors?.['required']">
+                            Nombres requerido.
+                        </div>
+                    </div>
                     <div *ngIf="email?.invalid && (email?.dirty || email?.touched)" class="alert alert-danger">
 
                         <div *ngIf="email?.errors?.['required']">
@@ -25,6 +31,11 @@
                         <div *ngIf="passwordConfirm?.errors?.['required']">
                             Confirme contraseña.
                         </div>
+                    </div>
+                    <div class="bor8 m-b-20">
+                        <input formControlName="displayName" autocomplete="off"
+                            class="stext-111 cl2 plh3 size-116 p-l-25 p-r-30" type="text" name="displayName"
+                            placeholder="Nombres">
                     </div>
                     <div class="bor8 m-b-20">
                         <input formControlName="email" autocomplete="off"
