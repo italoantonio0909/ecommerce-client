@@ -20,7 +20,7 @@ export class BlogService {
       );
   }
   postRetrieveDetail(postUid: string): Observable<Post> {
-    return this.http.get<Post>(`${getUrl()}/api/posts/retrieve-post/${postUid}`).
+    return this.http.get<Post>(`${getUrl()}/api/blog/retrieve-post/${postUid}`).
       pipe(
         map(e => e)
       );
