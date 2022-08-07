@@ -7,7 +7,6 @@ import { SharedState } from '../../../store/shared/shared.state';
 @Component({
   selector: 'app-notification-panel',
   templateUrl: './notification-panel.component.html',
-  styleUrls: ['./notification-panel.component.css'],
 })
 export class NotificationPanelComponent implements OnInit {
   constructor(private store: Store) { }
@@ -20,6 +19,5 @@ export class NotificationPanelComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('render component');
   }
 }

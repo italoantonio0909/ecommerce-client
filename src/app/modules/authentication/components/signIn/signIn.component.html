@@ -2,23 +2,25 @@
     <div class="container">
         <div class="flex-c">
             <div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
-                <form>
+                <form [formGroup]="authenticationSignInForm">
                     <h4 class="mtext-105 cl2 txt-center p-b-30">
                         Iniciar sesión
                     </h4>
-                    <div class="bor8 m-b-20">
-                        <input autocomplete="off" class="size-116 p-l-25 p-r-30 cl13" type="text" name="email"
-                            placeholder="Correo electrónico">
+                    <div [ngClass]="{ 'bor-error': email?.invalid && (email?.dirty || email?.touched)}"
+                        class="bor8 m-b-20">
+                        <input formControlName="email" autocomplete="off" class="size-116 p-l-25 p-r-30 cl13"
+                            type="text" placeholder="Correo electrónico">
                     </div>
-                    <div class="bor8 m-b-10 how-pos4-parent">
-                        <input class="size-116 p-l-25 p-r-30 cl13" type="password" name="email" autocomplete="off"
-                            placeholder="Contraseña">
+                    <div [ngClass]="{ 'bor-error': password?.invalid && (password?.dirty || password?.touched)}"
+                        class="bor8 m-b-10 how-pos4-parent">
+                        <input formControlName="password" class="size-116 p-l-25 p-r-30 cl13" type="password"
+                            autocomplete="off" placeholder="Contraseña">
                     </div>
                     <div class="m-b-30 d-flex justify-content-end">
-                        <span [routerLink]="['/customers/reset-password']"
-                            class="cursor-pointer stext-111 cl1 m-l-5">Recuperar contraseña</span>
+                        <span [routerLink]="['/customers/reset-password']" class="cursor-pointer small cl1">Recuperar
+                            contraseña</span>
                     </div>
-                    <button type="button" (click)="isLoading = !isLoading"
+                    <button type="submit" (click)="submit()" [ngClass]="{'hov-btn3' : !isLoading}"
                         class="flex-c-m stext-101 cl0 size-121 bg1 bor1 hov-btn3 p-lr-15 trans-04 pointer">
                         <p *ngIf="!isLoading; else loading">Login</p>
                         <ng-template #loading>
@@ -33,12 +35,13 @@
                 <div class="container">
                     <div class="flex-row align-self-stretch">
                         <div class="col-sm">
-                            <h4 class="stext-111 txt-center cl2">
+
+                            <span class="small cl3">
                                 No tienes una cuenta?
-                                <span [routerLink]="['/customers/create']"
-                                    class="cursor-pointer stext-111 cl1 m-l-5">Crear una
-                                    cuenta</span>
-                            </h4>
+                            </span>
+                            <span [routerLink]="['/customers/create']" class="cursor-pointer cl1 small">Crear
+                                una
+                                cuenta</span>
                         </div>
                     </div>
                 </div>

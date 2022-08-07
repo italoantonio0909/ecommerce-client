@@ -26,6 +26,11 @@ import { CustomersModule } from './modules/customers/customers.module';
 import { CampaignModule } from './modules/retention/campaign/campaign.module';
 import { BasketModule } from './modules/basket/basket.module';
 import { BasketState } from './modules/basket/store/state';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { environment } from 'src/environments/environment';
+import { AuthenticationState } from './modules/authentication/store/state';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
 const CONTAINERS = [
   DefaultLayoutSweetComponent,
@@ -38,6 +43,7 @@ const states = [
   CatalogueState,
   SubscriberState,
   BlogState,
+  AuthenticationState,
   BasketState
 ]
 
@@ -64,8 +70,12 @@ const states = [
     NgxsModule.forRoot([...states], {
       developmentMode: true,
     }),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
   ],
-  providers: [],
+  providers: [
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebase }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
