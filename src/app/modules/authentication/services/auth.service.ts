@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Customer } from '../entities/Customer';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { getUrl } from 'src/app/helpers';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private auth: AngularFireAuth) { }
 
-  signUp(customer: Customer): Observable<any> {
-    return this.http.post<Observable<any>>(
-      'http://localhost:8000/api/auth/signUp',
-      customer
-    );
+  async signIn(email: string, password: string) {
+    return await this.auth.signInWithEmailAndPassword(email, password)
+  }
+
+  async createCookieSession() {
+    return await this.http.post(`${getUrl()}/api/create-cookie-session`, {});
   }
 }

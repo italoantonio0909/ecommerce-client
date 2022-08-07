@@ -2838,6 +2838,11 @@ input.num-product::-webkit-inner-spin-button {
   border-radius: 2px;
 }
 
+.bor-error {
+  border: 1px solid #e55353;
+  border-radius: 2px;
+}
+
 /*==================================================================
  HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW HOW 
 ==================================================================*/
