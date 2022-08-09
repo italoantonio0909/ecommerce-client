@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DefaultLayoutSweetComponent } from './modules/shared/default-layout/default-layout-sweet/default-layout-sweet.component';
 import { HomeSweetComponent } from './modules/shared/home/home-sweet/home-sweet.component';
+// import { AuthGuard } from './guards/auth.guard';
+import { AngularFireAuthGuard } from '@angular/fire/compat/auth-guard';
+import { redirectLoggedIn, redirectUnauthorizedToLogin } from './guards/firebase.pipes';
 
 const routes: Routes = [
   {
@@ -15,7 +18,7 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        component: HomeSweetComponent,
+        component: HomeSweetComponent
       },
       {
         path: 'blog',
@@ -33,6 +36,8 @@ const routes: Routes = [
           import('./modules/shopping-cart/shopping-cart.module').then(
             (m) => m.ShoppingCartModule
           ),
+        canActivate: [AngularFireAuthGuard],
+        data: { authGuardPipe: redirectUnauthorizedToLogin }
       },
       {
         path: 'about',
@@ -52,6 +57,8 @@ const routes: Routes = [
       import('./modules/authentication/authentication.module').then(
         (m) => m.AuthenticationModule
       ),
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectLoggedIn }
   },
   {
     path: 'customers',

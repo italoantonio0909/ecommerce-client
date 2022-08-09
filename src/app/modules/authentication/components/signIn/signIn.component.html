@@ -8,17 +8,25 @@
                     </h4>
                     <div [ngClass]="{ 'bor-error': email?.invalid && (email?.dirty || email?.touched)}"
                         class="bor8 m-b-20">
-                        <input formControlName="email" autocomplete="off" class="size-116 p-l-25 p-r-30 cl13"
+                        <input autocomplete="email" formControlName="email" class="size-116 p-l-25 p-r-30 cl13"
                             type="text" placeholder="Correo electrónico">
                     </div>
                     <div [ngClass]="{ 'bor-error': password?.invalid && (password?.dirty || password?.touched)}"
-                        class="bor8 m-b-10 how-pos4-parent">
-                        <input formControlName="password" class="size-116 p-l-25 p-r-30 cl13" type="password"
-                            autocomplete="off" placeholder="Contraseña">
+                        class="bor8 m-b-20 how-pos6-parent">
+                        <input autocomplete="current-password" [type]="hiddenPassword ? 'password' : 'text'"
+                            formControlName="password" class="size-116 p-l-25 p-r-30 cl13" type="password"
+                            placeholder="Contraseña">
+                        <a class="how-pos6 fs-18 cl8 trans-04 cursor-pointer"
+                            (click)="hiddenPassword = !hiddenPassword">
+                            <i [ngClass]="[hiddenPassword ? 'fa fa-eye-slash m-l-9' : 'fa fa-eye m-l-9']"
+                                aria-hidden="true"></i>
+                        </a>
+
                     </div>
                     <div class="m-b-30 d-flex justify-content-end">
-                        <span [routerLink]="['/customers/reset-password']" class="cursor-pointer small cl1">Recuperar
-                            contraseña</span>
+                        <span [routerLink]="['/customers/reset-password']" class="cursor-pointer small cl1">
+                            Recuperar contraseña
+                        </span>
                     </div>
                     <button type="submit" (click)="submit()" [ngClass]="{'hov-btn3' : !isLoading}"
                         class="flex-c-m stext-101 cl0 size-121 bg1 bor1 hov-btn3 p-lr-15 trans-04 pointer">
@@ -34,14 +42,17 @@
             <div class="size-210 bor10 p-lr-70 p-t-20 p-b-20 p-lr-15-lg w-full-md">
                 <div class="container">
                     <div class="flex-row align-self-stretch">
-                        <div class="col-sm">
-
-                            <span class="small cl3">
-                                No tienes una cuenta?
-                            </span>
-                            <span [routerLink]="['/customers/create']" class="cursor-pointer cl1 small">Crear
-                                una
-                                cuenta</span>
+                        <div class="col-sm d-flex justify-content-center">
+                            <div>
+                                <span class="small cl3">
+                                    No tienes una cuenta?
+                                </span>
+                            </div>
+                            <div class="m-l-5">
+                                <span [routerLink]="['/customers/create']" class="cursor-pointer cl1 small">
+                                    Crear una cuenta
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>

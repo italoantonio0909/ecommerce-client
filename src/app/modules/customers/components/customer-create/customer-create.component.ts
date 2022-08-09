@@ -3,6 +3,8 @@ import { CustomersService } from '../../services/customers.service';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ToastMessage } from '../../../../helpers/index';
 import { Customer } from '../../entities/Customer';
+import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-customer-create',
@@ -24,12 +26,10 @@ export class CustomerCreateComponent {
     password: new FormControl('', Validators.required),
     passwordConfirm: new FormControl('', Validators.required),
     displayName: new FormControl('', Validators.required),
-  });
+  }, { updateOn: "change" });
 
 
   async customerCreate() {
-
-    this.isLoading = true;
 
     const email = this.customerCreateForm.get('email')?.value! as string;
     const password = this.customerCreateForm.get('password')?.value as string;
@@ -43,17 +43,20 @@ export class CustomerCreateComponent {
       displayName: displayName
     };
 
-    try {
-      await this.customerService.customerCreate(customer).toPromise();
-      ToastMessage("Cuenta creada", "success", "bottom-left", "dark");
-
-    } catch (error) {
-      console.log(error)
-      ToastMessage(error.error.error, "error", "bottom-left", "dark");
-
-    } finally {
-      this.isLoading = false;
+    if (this.customerCreateForm.invalid) {
+      return;
     }
+
+    this.isLoading = true;
+
+    this.customerService.customerCreate(customer)
+      .pipe(
+        catchError((error) => {
+          console.log({ error })
+          this.isLoading = false
+          return of('')
+        })
+      ).subscribe(() => this.isLoading = false)
   }
 
   get email() {

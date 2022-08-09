@@ -7,23 +7,30 @@
     <div class="container">
         <div class="flex-w flex-tr">
             <div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
-                <form>
-                    <h4 class="mtext-105 cl2 txt-center p-b-30">
+                <form [formGroup]="contactForm">
+                    <h4 class=" mtext-105 cl2 txt-center p-b-30">
                         Envíanos un mensaje
                     </h4>
-                    <div class="bor8 m-b-20 how-pos4-parent">
-                        <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="email"
-                            placeholder="Tu dirección de email">
+                    <div [ngClass]="{ 'bor-error': email?.invalid && (email?.dirty || email?.touched)}"
+                        class="bor8 m-b-20 how-pos4-parent">
+                        <input formControlName="email" autocomplete="off" class="cl13 size-116 p-l-62 p-r-30"
+                            type="text" name="email" placeholder="Tu dirección de email">
                         <img class="how-pos4 pointer-none" src="../../../static/images/icons/icon-email.png" alt="ICON">
                     </div>
 
-                    <div class="bor8 m-b-30">
-                        <textarea class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25" name="msg"
+                    <div [ngClass]="{ 'bor-error': proposse?.invalid && (proposse?.dirty || proposse?.touched)}"
+                        class="bor8 m-b-20 how-pos4-parent">
+                        <textarea formControlName="proposse" class="cl13 size-120 p-lr-28 p-tb-25"
                             placeholder="En qué podemos ayudarte?"></textarea>
                     </div>
 
-                    <button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
-                        Enviar
+                    <button type="submit"
+                        class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
+                        <p *ngIf="!isLoading; else loading">Enviar</p>
+                        <ng-template #loading>
+                            ....
+                            <!-- <app-loader-elipsis></app-loader-elipsis> -->
+                        </ng-template>
                     </button>
                 </form>
             </div>
