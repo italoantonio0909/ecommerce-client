@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Injectable, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -74,7 +74,7 @@ const states = [
     provideFirestore(() => getFirestore()),
   ],
   providers: [
-    { provide: FIREBASE_OPTIONS, useValue: environment.firebase }
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebase },
   ],
   bootstrap: [AppComponent],
 })
