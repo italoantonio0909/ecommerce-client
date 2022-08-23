@@ -1,5 +1,7 @@
-import { NgModule, Injectable, ErrorHandler } from '@angular/core';
+import { NgModule, Injectable } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { Observable } from 'rxjs';
+import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +18,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { DefaultLayoutSweetComponent } from './modules/shared/default-layout/default-layout-sweet/default-layout-sweet.component';
 import { DefaultLayoutDarkComponent } from './modules/shared/default-layout/default-layout-dark/default-layout-dark.component';
 import { DefaultLayoutLigthComponent } from './modules/shared/default-layout/default-layout-ligth/default-layout-ligth.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SubscribersModule } from './modules/subscribers/subscribers.module';
 import { SubscriberState } from './modules/subscribers/store/state';
 import { CatalogueModule } from './modules/catalogue/catalogue.module';
@@ -31,6 +33,16 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { AuthenticationState } from './modules/authentication/store/state';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { AngularFireAuthGuardModule } from '@angular/fire/compat/auth-guard';
+
+// @Injectable()
+// export class APIInterceptor implements HttpInterceptor {
+//   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
+//     const apiReq = req.clone({ url: `http://localhost:3000/${req.url}` });
+//     return next.handle(apiReq);
+//   }
+// }
 
 const CONTAINERS = [
   DefaultLayoutSweetComponent,
@@ -53,6 +65,7 @@ const states = [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    AngularFireAuthGuardModule,
     CatalogueModule,
     SharedModule,
     BlogModule,
@@ -75,6 +88,7 @@ const states = [
   ],
   providers: [
     { provide: FIREBASE_OPTIONS, useValue: environment.firebase },
+    // { provide: HTTP_INTERCEPTORS, useClass: APIInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
 })

@@ -2,7 +2,7 @@
     <div class="container">
         <div class="flex-c">
             <div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
-                <form [formGroup]="customerCreateForm">
+                <form [formGroup]="customerCreateForm" (ngSubmit)="customerCreate()">
                     <h4 class="mtext-105 cl2 txt-center p-b-30">
                         Crear una cuenta
                     </h4>
@@ -32,7 +32,7 @@
                             autocomplete="off" class="size-116 p-l-25 p-r-30 cl13" type="text" name="passwordConfirm"
                             placeholder="Confirmar contraseña">
                     </div>
-                    <button type="button" (click)="customerCreate()" [ngClass]="{'hov-btn3' : !isLoading}"
+                    <button type="submit" [ngClass]="{'hov-btn3' : !isLoading}"
                         class="flex-c-m stext-101 cl0 size-121 bg1 bor1 p-lr-15 trans-04 pointer">
                         <div *ngIf="!isLoading; else loading">Registrarme</div>
                         <ng-template #loading>
