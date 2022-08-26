@@ -5,9 +5,8 @@ import { CustomersRoutingModule } from './customers-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomerCreateComponent } from './components/customer-create/customer-create.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { CustomerResetPassword } from './components/customer-reset-pasword/customer-reset-password.component';
 
-const components = [CustomerCreateComponent, CustomerResetPassword]
+const components = [CustomerCreateComponent]
 
 @NgModule({
   declarations: [components],
