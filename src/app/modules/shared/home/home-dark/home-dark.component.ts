@@ -9,9 +9,8 @@ interface Props {
 }
 
 @Component({
-  selector: 'app-home-dark',
+  selector: 'home-dark',
   templateUrl: './home-dark.component.html',
-  styleUrls: ['./home-dark.component.css'],
 })
 export class HomeDarkComponent implements OnInit {
   sliders$ = of([1, 2, 3]);
@@ -57,7 +56,7 @@ export class HomeDarkComponent implements OnInit {
       '<button class="arrow-slick1 next-slick1"><i class="zmdi zmdi-caret-right"></i></button>',
   };
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

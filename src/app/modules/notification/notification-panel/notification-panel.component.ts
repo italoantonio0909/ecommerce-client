@@ -5,7 +5,7 @@ import { NotificationSetup } from '../../../store/shared/shared.actions';
 import { SharedState } from '../../../store/shared/shared.state';
 
 @Component({
-  selector: 'app-notification-panel',
+  selector: 'notification-panel',
   templateUrl: './notification-panel.component.html',
 })
 export class NotificationPanelComponent implements OnInit {

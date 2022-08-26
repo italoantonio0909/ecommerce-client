@@ -5,6 +5,8 @@ import { HomeSweetComponent } from './modules/shared/home/home-sweet/home-sweet.
 // import { AuthGuard } from './guards/auth.guard';
 import { AngularFireAuthGuard } from '@angular/fire/compat/auth-guard';
 // import { redirectLoggedIn, redirectUnauthorizedToLogin } from './guards/firebase.pipes';
+import { DefaultLayoutDarkComponent } from './modules/shared/default-layout/default-layout-dark/default-layout-dark.component';
+import { HomeDarkComponent } from './modules/shared/home/home-dark/home-dark.component';
 
 const routes: Routes = [
   {
@@ -14,11 +16,11 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: DefaultLayoutSweetComponent,
+    component: DefaultLayoutDarkComponent,
     children: [
       {
         path: 'home',
-        component: HomeSweetComponent
+        component: HomeDarkComponent
       },
       {
         path: 'blog',

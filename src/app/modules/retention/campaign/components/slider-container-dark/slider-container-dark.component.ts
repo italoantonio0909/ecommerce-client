@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { of } from 'rxjs';
+
 interface Props {
   img: string;
   title: string;
@@ -8,28 +9,31 @@ interface Props {
 }
 
 @Component({
-  selector: 'slider-container',
-  templateUrl: './slider-container.component.html',
+  selector: 'slider-container-dark',
+  templateUrl: './slider-container-dark.component.html',
 })
-export class SliderContainerComponent {
+export class SliderContainerDarkComponent implements OnInit {
 
   constructor() { }
 
+  ngOnInit(): void {
+  }
+
   slides: Array<Props> = [
     {
-      img: '../../../static/images/slide-01.jpg',
+      img: '../../../static/images/slide-05.jpg',
       title: 'Mujer Collection 2022',
       tag: 'NEW SEASON',
       description: 'Comprar',
     },
     {
-      img: '../../../static/images/slide-02.jpg',
+      img: '../../../static/images/slide-06.jpg',
       title: 'Hombre Collection 2022',
       tag: 'NEW SEASON',
       description: 'Comprar',
     },
     {
-      img: '../../../static/images/slide-03.jpg',
+      img: '../../../static/images/slide-07.jpg',
       title: 'Accesorios Collection 2022',
       tag: 'NEW SEASON',
       description: 'Comprar',
@@ -53,6 +57,5 @@ export class SliderContainerComponent {
   };
 
   sliders$ = of([1, 2, 3]);
-
 
 }

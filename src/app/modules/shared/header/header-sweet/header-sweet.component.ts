@@ -5,7 +5,7 @@ import { NotificationSetup, SearchSetup } from '../../../../store/shared/shared.
 import { BasketPanelShow } from '../../../basket/store/action';
 
 @Component({
-  selector: 'app-header-sweet',
+  selector: 'header-sweet',
   templateUrl: './header-sweet.component.html',
 })
 export class HeaderSweetComponent implements OnInit {
@@ -41,16 +41,6 @@ export class HeaderSweetComponent implements OnInit {
       posWrapHeader = topBar[0].clientHeight;
     } else {
       posWrapHeader = 0;
-    }
-
-    // ScrollY obtain scroll current window
-    if (window.scrollY > posWrapHeader) {
-      headerDesktop!.classList.add('fix-menu-desktop');
-      wrapMenu!.style.top = '0px';
-    } else {
-      headerDesktop!.classList.remove('fix-menu-desktop');
-      var wrapHeader = posWrapHeader - window.scrollY;
-      wrapMenu!.style.top = `${wrapHeader}px`;
     }
 
     function scrollWindow() {

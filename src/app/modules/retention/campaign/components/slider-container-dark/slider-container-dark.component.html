@@ -1,12 +1,13 @@
 <!-- EXPERIMENTAL SLIDER -->
-<section class="section-slide">
-    <div class="wrap-slick1">
+<section>
+    <div class="wrap-slick1 rs2-slick1">
         <div class="slick1">
             <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
                 <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-                    <slider [slider]="slide"></slider>
+                    <slider-dark [slider]="slide"></slider-dark>
                 </div>
             </ngx-slick-carousel>
         </div>
+        <div class="wrap-slick1-dots p-lr-10"></div>
     </div>
 </section>

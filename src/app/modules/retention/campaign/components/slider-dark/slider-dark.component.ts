@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import 'animate.css';
 
 interface Props {
   img: string;
@@ -9,15 +8,17 @@ interface Props {
 }
 
 @Component({
-  selector: 'slider',
-  templateUrl: './slider.component.html',
+  selector: 'slider-dark',
+  templateUrl: './slider-dark.component.html',
 })
-export class SliderComponent implements OnInit {
+
+export class SliderDarkComponent implements OnInit {
   @Input() slider?: Props;
 
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }
