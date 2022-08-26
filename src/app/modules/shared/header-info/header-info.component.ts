@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-header-info',
+  selector: 'header-info',
   templateUrl: './header-info.component.html',
 })
 export class HeaderInfoComponent implements OnInit {

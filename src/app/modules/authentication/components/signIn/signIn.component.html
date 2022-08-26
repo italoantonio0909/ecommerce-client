@@ -2,7 +2,7 @@
     <div class="container">
         <div class="flex-c">
             <div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
-                <form [formGroup]="authenticationSignInForm">
+                <form [formGroup]="authenticationSignInForm" (ngSubmit)="submit()">
                     <h4 class="mtext-105 cl2 txt-center p-b-30">
                         Iniciar sesión
                     </h4>
@@ -21,14 +21,24 @@
                             <i [ngClass]="[hiddenPassword ? 'fa fa-eye-slash m-l-9' : 'fa fa-eye m-l-9']"
                                 aria-hidden="true"></i>
                         </a>
-
                     </div>
-                    <div class="m-b-30 d-flex justify-content-end">
-                        <span [routerLink]="['/customers/reset-password']" class="cursor-pointer small cl1">
-                            Recuperar contraseña
-                        </span>
+                    <div class="m-b-30 d-flex justify-content-between">
+                        <div class="d-flex justify-content-between">
+                            <!-- <div>
+                                <input type="checkbox" name="remember" formControlName="remember"
+                                    class="form-check-input cl0 bg1">
+                            </div>
+                            <div class="m-l-5 m-t-1">
+                                <span for="remember" class="form-check-label small cl1">Recordarme</span>
+                            </div> -->
+                        </div>
+                        <div>
+                            <span [routerLink]="['/authentication/recovery-password']" class="cursor-pointer small cl1">
+                                Recuperar contraseña
+                            </span>
+                        </div>
                     </div>
-                    <button type="submit" (click)="submit()" [ngClass]="{'hov-btn3' : !isLoading}"
+                    <button type="submit" [ngClass]="{'hov-btn3' : !isLoading}"
                         class="flex-c-m stext-101 cl0 size-121 bg1 bor1 hov-btn3 p-lr-15 trans-04 pointer">
                         <p *ngIf="!isLoading; else loading">Login</p>
                         <ng-template #loading>
@@ -45,7 +55,7 @@
                         <div class="col-sm d-flex justify-content-center">
                             <div>
                                 <span class="small cl3">
-                                    No tienes una cuenta?
+                                    ¿No tienes una cuenta?
                                 </span>
                             </div>
                             <div class="m-l-5">

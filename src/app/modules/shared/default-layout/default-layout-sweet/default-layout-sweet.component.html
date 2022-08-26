@@ -1,13 +1,19 @@
-<header class="header-v4">
-    <div class="container-menu-desktop">
-        <app-header-info></app-header-info>
-        <div class="wrap-menu-desktop">
-            <app-header-sweet></app-header-sweet>
+<body>
+    <header class="header-v4">
+        <!-- Header Desktop -->
+        <div class="container-menu-desktop">
+            <!-- TopBar -->
+            <header-info></header-info>
+            <div class="wrap-menu-desktop">
+                <header-sweet></header-sweet>
+            </div>
         </div>
-    </div>
+        <!-- Header Mobile -->
+        <header-sweet-mobile></header-sweet-mobile>
+    </header>
     <router-outlet></router-outlet>
     <ng-template [ngIf]="notificationSetup$ | async">
-        <app-notification-panel></app-notification-panel>
+        <notification-panel></notification-panel>
     </ng-template>
     <ng-template [ngIf]="basketPanel$ | async">
         <app-basket-panel></app-basket-panel>
@@ -18,6 +24,6 @@
     <ng-template [ngIf]="productDetail$ | async">
         <app-product-preview></app-product-preview>
     </ng-template>
-</header>
-<app-back-top></app-back-top>
-<app-footer></app-footer>
+    <app-back-top></app-back-top>
+    <app-footer></app-footer>
+</body>

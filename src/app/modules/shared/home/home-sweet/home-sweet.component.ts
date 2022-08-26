@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { of } from 'rxjs';
 
 @Component({
-  selector: 'app-home-sweet',
+  selector: 'home-sweet',
   templateUrl: './home-sweet.component.html',
 })
 export class HomeSweetComponent implements OnInit {

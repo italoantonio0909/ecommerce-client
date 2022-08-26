@@ -4,6 +4,7 @@ import { ToastMessage } from "../../../../helpers/index";
 import { Subscriber } from '../../entities/Subscriber';
 import { Store } from '@ngxs/store';
 import { SubscriberCreate } from '../../store/actions';
+import { AngularFireAuth } from "@angular/fire/compat/auth";
 
 @Component({
   selector: "app-subscriber-create",
@@ -11,7 +12,9 @@ import { SubscriberCreate } from '../../store/actions';
 })
 export class SubscriberCreateComponent {
 
-  constructor(private store: Store, private formBuilder: FormBuilder) { }
+  constructor(private store: Store, private formBuilder: FormBuilder, t: AngularFireAuth) {
+    t.signOut()
+  }
 
   isLoading: boolean = false
 

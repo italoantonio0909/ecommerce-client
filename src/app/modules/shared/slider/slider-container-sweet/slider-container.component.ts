@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { of } from 'rxjs';
-
 interface Props {
   img: string;
   title: string;
@@ -9,15 +8,12 @@ interface Props {
 }
 
 @Component({
-  selector: 'home-dark',
-  templateUrl: './home-dark.component.html',
+  selector: 'slider-sweet-container',
+  templateUrl: './slider-container.component.html',
 })
-export class HomeDarkComponent implements OnInit {
-  sliders$ = of([1, 2, 3]);
+export class SliderSweetContainerComponent {
 
-  banners$ = of([1, 2, 3]);
-
-  products$ = of([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+  constructor() { }
 
   slides: Array<Props> = [
     {
@@ -43,7 +39,7 @@ export class HomeDarkComponent implements OnInit {
   slideConfig = {
     slidesToShow: 1,
     slidesToScroll: 1,
-    dots: true,
+    dots: false,
     pauseOnFocus: false,
     pauseOnHover: false,
     infinite: true,
@@ -56,7 +52,7 @@ export class HomeDarkComponent implements OnInit {
       '<button class="arrow-slick1 next-slick1"><i class="zmdi zmdi-caret-right"></i></button>',
   };
 
-  constructor() { }
+  sliders$ = of([1, 2, 3]);
 
-  ngOnInit(): void { }
+
 }

@@ -19,8 +19,9 @@ export class SignInComponent {
   constructor(private store: Store, private formBuilder: FormBuilder, private router: Router) { }
 
   authenticationSignInForm = this.formBuilder.group({
-    email: new FormControl("", [Validators.required, Validators.email]),
-    password: new FormControl("", [Validators.required])
+    email: new FormControl(localStorage.getItem("email") || "", [Validators.required, Validators.email]),
+    password: new FormControl("", [Validators.required]),
+    remember: new FormControl(true, [Validators.required])
   }, { updateOn: "submit" })
 
   isLoading: boolean = false;
@@ -33,6 +34,12 @@ export class SignInComponent {
 
     const email = this.authenticationSignInForm.get("email").value;
     const password = this.authenticationSignInForm.get("password").value;
+    const remember = this.authenticationSignInForm.get("remember").value;
+
+
+    if (remember) {
+      localStorage.setItem("email", email);
+    }
 
     this.store.dispatch(new AuthenticationSignIn(email, password))
       .subscribe(() => {

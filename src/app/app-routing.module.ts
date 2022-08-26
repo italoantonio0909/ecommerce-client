@@ -4,7 +4,9 @@ import { DefaultLayoutSweetComponent } from './modules/shared/default-layout/def
 import { HomeSweetComponent } from './modules/shared/home/home-sweet/home-sweet.component';
 // import { AuthGuard } from './guards/auth.guard';
 import { AngularFireAuthGuard } from '@angular/fire/compat/auth-guard';
-import { redirectLoggedIn, redirectUnauthorizedToLogin } from './guards/firebase.pipes';
+// import { redirectLoggedIn, redirectUnauthorizedToLogin } from './guards/firebase.pipes';
+import { DefaultLayoutDarkComponent } from './modules/shared/default-layout/default-layout-dark/default-layout-dark.component';
+import { HomeDarkComponent } from './modules/shared/home/home-dark/home-dark.component';
 
 const routes: Routes = [
   {
@@ -36,8 +38,8 @@ const routes: Routes = [
           import('./modules/shopping-cart/shopping-cart.module').then(
             (m) => m.ShoppingCartModule
           ),
-        canActivate: [AngularFireAuthGuard],
-        data: { authGuardPipe: redirectUnauthorizedToLogin }
+        // canActivate: [AngularFireAuthGuard],
+        // data: { authGuardPipe: redirectUnauthorizedToLogin }
       },
       {
         path: 'about',
@@ -57,8 +59,8 @@ const routes: Routes = [
       import('./modules/authentication/authentication.module').then(
         (m) => m.AuthenticationModule
       ),
-    canActivate: [AngularFireAuthGuard],
-    data: { authGuardPipe: redirectLoggedIn }
+    // canActivate: [AngularFireAuthGuard],
+    // data: { authGuardPipe: redirectLoggedIn }
   },
   {
     path: 'customers',

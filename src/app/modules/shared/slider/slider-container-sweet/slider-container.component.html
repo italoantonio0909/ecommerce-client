@@ -1,10 +1,9 @@
-<!-- EXPERIMENTAL SLIDER -->
 <section class="section-slide">
     <div class="wrap-slick1">
         <div class="slick1">
             <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
                 <div ngxSlickItem *ngFor="let slide of slides" class="slide">
-                    <app-slider [slider]="slide"></app-slider>
+                    <slider-sweet [slider]="slide"></slider-sweet>
                 </div>
             </ngx-slick-carousel>
         </div>
