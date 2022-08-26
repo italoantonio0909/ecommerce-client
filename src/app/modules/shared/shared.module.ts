@@ -21,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SubscribersModule } from '../subscribers/subscribers.module';
 import { CatalogueModule } from '../catalogue/catalogue.module';
 import { CampaignModule } from '../retention/campaign/campaign.module';
+import { HeaderSweetMobileComponent } from './header/header-sweet-mobile/header-sweet-mobile.component';
 
 const components = [
   HeaderInfoComponent,
@@ -35,6 +36,7 @@ const components = [
   HeaderSweetComponent,
   HeaderDarkComponent,
   HomeLigthComponent,
+  HeaderSweetMobileComponent,
   LoaderElipsisComponent,
 ];
 

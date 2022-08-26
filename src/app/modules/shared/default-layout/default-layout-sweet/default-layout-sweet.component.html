@@ -1,23 +1,38 @@
 <header class="header-v4">
+    <!-- Header Desktop -->
     <div class="container-menu-desktop">
         <app-header-info></app-header-info>
         <div class="wrap-menu-desktop">
             <app-header-sweet></app-header-sweet>
         </div>
     </div>
-    <router-outlet></router-outlet>
-    <ng-template [ngIf]="notificationSetup$ | async">
-        <app-notification-panel></app-notification-panel>
-    </ng-template>
-    <ng-template [ngIf]="basketPanel$ | async">
-        <app-basket-panel></app-basket-panel>
-    </ng-template>
-    <ng-template [ngIf]="searchSetup$ | async">
-        <app-search-panel></app-search-panel>
-    </ng-template>
-    <ng-template [ngIf]="productDetail$ | async">
-        <app-product-preview></app-product-preview>
-    </ng-template>
+    <div class="wrap-header-mobile">
+        <div>
+            <div class="logo-mobile">
+                <a href="index.html"><img src="../../../../../static/images/icons/logo-01.png" alt="IMG-LOGO"></a>
+            </div>
+
+            <div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </div>
+        </div>
+        <!-- <header-sweet-mobile></header-sweet-mobile> -->
+    </div>
 </header>
+<router-outlet></router-outlet>
+<ng-template [ngIf]="notificationSetup$ | async">
+    <app-notification-panel></app-notification-panel>
+</ng-template>
+<ng-template [ngIf]="basketPanel$ | async">
+    <app-basket-panel></app-basket-panel>
+</ng-template>
+<ng-template [ngIf]="searchSetup$ | async">
+    <app-search-panel></app-search-panel>
+</ng-template>
+<ng-template [ngIf]="productDetail$ | async">
+    <app-product-preview></app-product-preview>
+</ng-template>
 <app-back-top></app-back-top>
 <app-footer></app-footer>
