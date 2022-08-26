@@ -16,11 +16,11 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: DefaultLayoutDarkComponent,
+    component: DefaultLayoutSweetComponent,
     children: [
       {
         path: 'home',
-        component: HomeDarkComponent
+        component: HomeSweetComponent
       },
       {
         path: 'blog',
