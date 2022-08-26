@@ -8,7 +8,7 @@ import { BackTopComponent } from './back-top/back-top.component';
 import { HeaderImageComponent } from './header-image/header-image.component';
 import { NotificationModule } from '../notification/notification.module';
 import { ShopModule } from '../shop/shop.module';
-import { BannerComponent } from '../retention/campaign/components/banner/banner.component';
+import { BannerComponent } from './banner/banner.component';
 import { SearchPanelComponent } from './search-panel/search-panel.component';
 import { HomeSweetComponent } from './home/home-sweet/home-sweet.component';
 import { HomeDarkComponent } from './home/home-dark/home-dark.component';
@@ -20,8 +20,12 @@ import { LoaderElipsisComponent } from './loader-elipsis/loader-elipsis.componen
 import { ReactiveFormsModule } from '@angular/forms';
 import { SubscribersModule } from '../subscribers/subscribers.module';
 import { CatalogueModule } from '../catalogue/catalogue.module';
-import { CampaignModule } from '../retention/campaign/campaign.module';
 import { HeaderSweetMobileComponent } from './header/header-sweet-mobile/header-sweet-mobile.component';
+import { SliderSweetComponent } from './slider/slider-sweet/slider.component';
+import { SliderSweetContainerComponent } from './slider/slider-container-sweet/slider-container.component';
+import { SliderDarkComponent } from './slider/slider-dark/slider-dark.component';
+import { SliderContainerDarkComponent } from './slider/slider-container-dark/slider-container-dark.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
 
 const components = [
   HeaderInfoComponent,
@@ -38,6 +42,10 @@ const components = [
   HomeLigthComponent,
   HeaderSweetMobileComponent,
   LoaderElipsisComponent,
+  SliderSweetComponent,
+  SliderSweetContainerComponent,
+  SliderDarkComponent,
+  SliderContainerDarkComponent
 ];
 
 @NgModule({
@@ -48,8 +56,8 @@ const components = [
     SharedRoutingModule,
     CatalogueModule,
     SubscribersModule,
-    CampaignModule,
     ShopModule,
+    SlickCarouselModule,
     NotificationModule,
   ],
   exports: [components],

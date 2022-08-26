@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'recovery-password',
   templateUrl: './recovery-password.component.html',
 })
-export class ResetPassword implements OnInit {
+export class RecoveryPassword implements OnInit {
 
   constructor() { }
 

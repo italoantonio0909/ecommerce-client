@@ -25,7 +25,6 @@ import { CatalogueModule } from './modules/catalogue/catalogue.module';
 import { CatalogueState } from './modules/catalogue/store/state';
 import { BlogState } from './modules/blog/store/state';
 import { CustomersModule } from './modules/customers/customers.module';
-import { CampaignModule } from './modules/retention/campaign/campaign.module';
 import { BasketModule } from './modules/basket/basket.module';
 import { BasketState } from './modules/basket/store/state';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
@@ -70,7 +69,6 @@ const states = [
     SharedModule,
     BlogModule,
     ContactModule,
-    CampaignModule,
     BasketModule,
     AboutModule,
     CustomersModule,

@@ -9,10 +9,10 @@ interface Props {
 }
 
 @Component({
-  selector: 'slider',
+  selector: 'slider-sweet',
   templateUrl: './slider.component.html',
 })
-export class SliderComponent implements OnInit {
+export class SliderSweetComponent implements OnInit {
   @Input() slider?: Props;
 
   constructor() { }

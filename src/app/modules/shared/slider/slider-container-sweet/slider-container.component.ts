@@ -8,10 +8,10 @@ interface Props {
 }
 
 @Component({
-  selector: 'slider-container',
+  selector: 'slider-sweet-container',
   templateUrl: './slider-container.component.html',
 })
-export class SliderContainerComponent {
+export class SliderSweetContainerComponent {
 
   constructor() { }
 
